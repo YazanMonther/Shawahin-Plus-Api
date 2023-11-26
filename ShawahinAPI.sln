@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShawahinAPI.Persistence", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShawahinAPI.Services", "ShawahinAPI.Services\ShawahinAPI.Services.csproj", "{504ECDB1-80AA-4A10-B8BD-7B6DA9824D84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShawainTestUnit", "ShawainTestUnit\ShawainTestUnit.csproj", "{77B3F4A9-7A7F-415F-8B62-ECEF0C4477EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShawainTestUnit", "ShawainTestUnit\ShawainTestUnit.csproj", "{77B3F4A9-7A7F-415F-8B62-ECEF0C4477EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{90DEBE0A-8A10-4332-A443-C16578A51AC2}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
