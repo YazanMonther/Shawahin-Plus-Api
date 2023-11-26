@@ -1,0 +1,17 @@
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.AssemblyInfo.cs
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Persistence.deps.json
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Persistence.runtimeconfig.json
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Persistence.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Persistence.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Core.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\bin\Debug\net7.0\ShawahinAPI.Core.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.csproj.CopyComplete
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\refint\ShawahinAPI.Persistence.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ShawahinAPI.Persistence.genruntimeconfig.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Persistence\obj\Debug\net7.0\ref\ShawahinAPI.Persistence.dll

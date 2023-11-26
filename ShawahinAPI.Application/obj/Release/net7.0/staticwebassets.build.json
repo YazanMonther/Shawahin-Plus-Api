@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Sr4ktnbvQ4OE8uDca7jwBA6SxmpDKIZiz389RYvvzaU=",
+  "Source": "ShawahinAPI.Application",
+  "BasePath": "_content/ShawahinAPI.Application",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

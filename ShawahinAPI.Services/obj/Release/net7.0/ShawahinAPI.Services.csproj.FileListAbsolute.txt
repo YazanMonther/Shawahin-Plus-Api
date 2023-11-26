@@ -1,0 +1,15 @@
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\bin\Release\net7.0\ShawahinAPI.Services.deps.json
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\bin\Release\net7.0\ShawahinAPI.Services.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\bin\Release\net7.0\ShawahinAPI.Services.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\bin\Release\net7.0\ShawahinAPI.Core.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\bin\Release\net7.0\ShawahinAPI.Core.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.AssemblyInfo.cs
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.csproj.CopyComplete
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\refint\ShawahinAPI.Services.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ref\ShawahinAPI.Services.dll
