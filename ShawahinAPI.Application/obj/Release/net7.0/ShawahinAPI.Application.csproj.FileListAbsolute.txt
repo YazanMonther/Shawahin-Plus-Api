@@ -196,3 +196,5 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ShawahinAPI.Application.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ShawahinAPI.Application.genruntimeconfig.cache
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ref\ShawahinAPI.Application.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\ShawahinAPI.Application.xml
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ShawahinAPI.Application.xml

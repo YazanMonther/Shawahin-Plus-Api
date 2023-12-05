@@ -169,4 +169,5 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\PubTmp\Out\ShawahinAPI.Persistence.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\PubTmp\Out\ShawahinAPI.Services.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\PubTmp\Out\ShawainTestUnit.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\PubTmp\Out\ShawahinAPI.Application.xml
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\PubTmp\Out\ShawahinAPI.Application.deps.json

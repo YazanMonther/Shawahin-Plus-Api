@@ -648,27 +648,6 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.ToTable("EvNews");
                 });
 
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.FavoriteServices", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ServiceId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ServiceId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("FavoriteServices");
-                });
-
             modelBuilder.Entity("ShawahinAPI.Core.Entities.Locations", b =>
                 {
                     b.Property<Guid>("Id")
@@ -701,34 +680,25 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServiceType", b =>
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.FavoriteServices", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ServiceTypeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ServiceTypes");
-                });
-
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.Services", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ServiceInfoId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServiceInfoId");
+                    b.HasIndex("ServiceId");
 
-                    b.ToTable("Services");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteServices");
                 });
 
             modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.ServiceInfo", b =>
@@ -737,10 +707,19 @@ namespace ShawahinAPI.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ContactInformation")
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceName")
@@ -778,6 +757,41 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ServiceReq");
+                });
+
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.Services", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ServiceInfoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceInfoId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntitiess.ServiceType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ServiceTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -1029,9 +1043,9 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.FavoriteServices", b =>
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.FavoriteServices", b =>
                 {
-                    b.HasOne("ShawahinAPI.Core.Entities.Services", "Service")
+                    b.HasOne("ShawahinAPI.Core.Entities.ServicesEntities.Services", "Service")
                         .WithMany()
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1048,20 +1062,9 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.Services", b =>
-                {
-                    b.HasOne("ShawahinAPI.Core.Entities.ServicesEntities.ServiceInfo", "ServiceInfo")
-                        .WithMany()
-                        .HasForeignKey("ServiceInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ServiceInfo");
-                });
-
             modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.ServiceInfo", b =>
                 {
-                    b.HasOne("ShawahinAPI.Core.Entities.ServiceType", "ServiceType")
+                    b.HasOne("ShawahinAPI.Core.Entities.ServicesEntitiess.ServiceType", "ServiceType")
                         .WithMany("Services")
                         .HasForeignKey("ServiceTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1080,6 +1083,25 @@ namespace ShawahinAPI.Persistence.Migrations
 
                     b.HasOne("ShawahinAPI.Core.Entities.ApplicationUser", "User")
                         .WithMany("ServiceRequests")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ServiceInfo");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntities.Services", b =>
+                {
+                    b.HasOne("ShawahinAPI.Core.Entities.ServicesEntities.ServiceInfo", "ServiceInfo")
+                        .WithMany()
+                        .HasForeignKey("ServiceInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShawahinAPI.Core.Entities.ApplicationUser", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1137,7 +1159,7 @@ namespace ShawahinAPI.Persistence.Migrations
                     b.Navigation("ChargingStations");
                 });
 
-            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServiceType", b =>
+            modelBuilder.Entity("ShawahinAPI.Core.Entities.ServicesEntitiess.ServiceType", b =>
                 {
                     b.Navigation("Services");
                 });

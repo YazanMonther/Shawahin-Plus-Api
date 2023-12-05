@@ -14,7 +14,7 @@ namespace ShawahinAPI.Services.Contract.IChargingStationsServices
         /// </summary>
         /// <param name="stationDto">Charging station request data to add.</param>
         /// <returns>A result indicating success or failure and an optional error message.</returns>
-        Task<ResultDto?> AddChargingStationRequestAsync(AddChargingStationsReqDto? stationDto);
+        Task<ResultDto> AddChargingStationRequestAsync(AddChargingStationsReqDto? stationDto);
 
         /// <summary>
         /// Get all charging station requests for a specific user.
@@ -36,13 +36,13 @@ namespace ShawahinAPI.Services.Contract.IChargingStationsServices
         /// <param name="requestId">The ID of the charging station request to update.</param>
         /// <param name="status">The new status to set for the request.</param>
         /// <returns>A result indicating success or failure and an optional error message.</returns>
-        Task<ResultDto?> UpdateChargingStationRequestStatusAsync(Guid? requestId, RequestStatus? status);
+        Task<ResultDto> UpdateChargingStationRequestStatusAsync(Guid? requestId, RequestStatus? status);
 
         /// <summary>
         /// Remove a charging station request.
         /// </summary>
         /// <param name="requestId">The ID of the charging station request to remove.</param>
         /// <returns>A result indicating success or failure and an optional error message.</returns>
-        Task<ResultDto?> RemoveChargingStationRequestAsync(Guid? requestId);
+        Task<ResultDto> RemoveChargingStationRequestAsync(Guid? requestId);
     }
 }

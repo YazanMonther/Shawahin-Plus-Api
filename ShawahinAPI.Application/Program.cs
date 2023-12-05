@@ -1,23 +1,26 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using ShawahinAPI.Application;
 using ShawahinAPI.Core.Entities;
+using ShawahinAPI.Core.IRepositories;
 using ShawahinAPI.Core.IRepositories.IChargingStationsRepositories;
-using ShawahinAPI.Core.IRepositories.ICommunityRepositories.ICommunityCommentsRepositories;
-using ShawahinAPI.Core.IRepositories.ICommunityRepositories.ICommunityEventsRepositories;
 using ShawahinAPI.Core.IRepositories.IUserRepository;
 using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Persistence;
+using ShawahinAPI.Persistence.Repository;
 using ShawahinAPI.Persistence.Repository.ChargingStationsRepositories;
-using ShawahinAPI.Persistence.Repository.CommunityRepositories.CommunityCommentsRepositories;
-using ShawahinAPI.Persistence.Repository.CommunityRepositories.CommunityEventsRepositories;
 using ShawahinAPI.Persistence.Repository.UserRepositories.UserAuthRepositories;
 using ShawahinAPI.Services.Contract;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
+using ShawahinAPI.Services.Contract.ICommunityServices;
+using ShawahinAPI.Services.Contract.IServiceServices;
 using ShawahinAPI.Services.Contract.IUserServices;
 using ShawahinAPI.Services.Implementation;
-using ShawahinAPI.Services.Implementation.ChargingStationsReqService;
+using ShawahinAPI.Services.Implementation.CommunityServices;
+using ShawahinAPI.Services.Implementation.ServiceServices;
 using ShawahinAPI.Services.Implementation.UserServices;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +29,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shawahin API", Version = "v1" });
+
+    // Set the comments path for the Swagger JSON and UI.
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+});
+
 
 
 builder.Services.AddDbContext<ShawahinDbContext>(options =>
@@ -42,42 +54,14 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 builder.Services.AddScoped<ShawahinDbContext>();
 
 builder.Services.AddScoped<IUserGetRepository, UserGetRepository>();
-builder.Services.AddScoped<IChargerStationCommentsRepository, ChargerStationCommentsRepository>();
 
-builder.Services.AddScoped<IChargerTypeRepository, ChargerTypeRepository>();
-builder.Services.AddScoped<IChargingStationRepository, ChargingStationRepository>();
-builder.Services.AddScoped<IChargingStationRequestRepository, ChargingStationRequestRepository>();
-builder.Services.AddScoped<IContactRepository, ContactRepository>();
-builder.Services.AddScoped<IUserFavoriteStationsRepository, UserFavoriteStationsRepository>();
-
-builder.Services.AddScoped<ICommunityCommentsAddRepository, CommunityCommentsAddRepository>();
-builder.Services.AddScoped<ICommunityCommentsGetByPostIdRepository, CommunityCommentsGetByPostIdRepository>();
-builder.Services.AddScoped<ICommunityCommentsRemoveRepository, CommunityCommentsRemoveRepository>();
-builder.Services.AddScoped<ICommunityEventsAddRepository, CommunityEventsAddRepository>();
-builder.Services.AddScoped<ICommunityEventsGetAllRepository, CommunityEventsGetAllRepository>();
-builder.Services.AddScoped<ICommunityEventsRemoveRepository, CommunityEventsRemoveRepository>();
-//builder.Services.AddScoped<IEvNewsAddRepository, EvNewsAddRepository>();
-//builder.Services.AddScoped<IEvNewsGetAllRepository, EvNewsGetAllRepository>();
-//builder.Services.AddScoped<IEvNewsRemoveRepository, EvNewsRemoveRepository>();
-//builder.Services.AddScoped<ICommunityPostsAddRepository, CommunityPostsAddRepository>();
-//builder.Services.AddScoped<ICommunityPostsGetAllRepository, CommunityPostsGetAllRepository>();
-//builder.Services.AddScoped<ICommunityPostsRemoveRepository, CommunityPostsRemoveRepository>();
-//builder.Services.AddScoped<IServiceInfoAddRepository, ServiceInfoAddRepository>();
-//builder.Services.AddScoped<IServiceAddRepository, ServiceAddRepository>();
-//builder.Services.AddScoped<IServiceRequestAddRepository, ServiceRequestAddRepository>();
+builder.Services.AddScoped<IStationGetRepository, StationGetRepository>();
 builder.Services.AddScoped<IUserLoginRepository, UserLoginRepository>();
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
 builder.Services.AddScoped<IUserSignOutRepository, UserSignOutRepository>();
 
-builder.Services.AddScoped<IStationOpeningHoursRepository, StationOpeningHoursRepository>();
 
-// Register Locations repository
-builder.Services.AddScoped<ILocationsRepository, LocationsRepository>();
-
-// Register Chargers Repo
-builder.Services.AddScoped<IChargersRepository, ChargersRepository>();
-
-
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 //Services
 
 builder.Services.AddScoped<ITokenService, TokenService>();
@@ -90,6 +74,15 @@ builder.Services.AddScoped<IFavoriteStationsService, FavoriteStationsService>();
 builder.Services.AddScoped<IChargerTypeService, ChargerTypeService>();
 builder.Services.AddScoped<IEnumsService, EnumsService>();
 builder.Services.AddScoped<IChargerStationCommentsService, ChargerStationCommentsService>();
+builder.Services.AddScoped<ICommunityCommentsService , CommunityCommentsService>();
+builder.Services.AddScoped<ICommunityEventsService, CommunityEventsService>();
+builder.Services.AddScoped<ICommunityPostsService, CommunityPostsService>();
+builder.Services.AddScoped<IEvNewsService, EvNewsService>();
+builder.Services.AddScoped<IServiceRequestService, ServiceRequestService>();
+builder.Services.AddScoped<IServiceTypeService, ServiceTypeService>();
+builder.Services.AddScoped<IServiceInfoService, ServiceInfoService>();
+builder.Services.AddScoped<IServicesService, ServicesService>();
+
 var app = builder.Build();
 app.UseHsts();
 
@@ -104,7 +97,6 @@ app.UseStaticFiles();
     });
 
 app.UseHttpsRedirection();
-
 
 app.UseRouting();
 // Configure the HTTP request pipeline.

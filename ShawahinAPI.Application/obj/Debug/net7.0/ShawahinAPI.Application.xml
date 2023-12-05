@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShawahinAPI.Application</name>
+    </assembly>
+    <members>
+        <member name="M:ShawahinAPI.Application.Controllers.ChargingStationsController.AddNewChargingStation(System.Guid,System.Guid)">
+            <summary>
+            only for Admin
+            </summary>
+            <param name="requestId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.CommunityEventsController.AddEvent(ShawahinAPI.Core.DTO.CommunityDto.CommunityEventBaseDto)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="eventDto"> event to be added </param>
+            <returns>result message</returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.CommunityEventsController.UpdateEvent(System.Guid,ShawahinAPI.Core.DTO.CommunityDto.CommunityEventBaseDto)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="id">event Id </param>
+            <param name="eventDto"> event to be updated</param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.CommunityEventsController.RemoveEvent(System.Guid)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="id"> event id to be deleted</param>
+            <returns>resutl message </returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.EvNewsController.AddNews(ShawahinAPI.Core.DTO.CommunityDto.CommunityEvNewsBaseDto)">
+            <summary>
+            Only for admin 
+            </summary>
+            <param name="newsDto">news to be added></param>
+            <returns></returns>
+                    [Authorize(Roles = "Admin")]
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.EvNewsController.UpdateNews(System.Guid,ShawahinAPI.Core.DTO.CommunityDto.CommunityEvNewsBaseDto)">
+            <summary>
+            Only for admin 
+            </summary>
+            <param name="newsId"></param>
+            <param name="newsDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.EvNewsController.RemoveNews(System.Guid)">
+            <summary>
+            Only for admin 
+            </summary>
+            <param name="newsId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShawahinAPI.Application.Controllers.FavoriteStationsController">
+            <summary>
+            Controller for managing favorite charging stations.
+            </summary>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.#ctor(ShawahinAPI.Services.Contract.IChargingStationsServices.IFavoriteStationsService)">
+            <summary>
+            Constructor for the FavoriteStationsController.
+            </summary>
+            <param name="favoriteStationsService">The service for managing favorite charging stations.</param>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.AddStationToFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Adds a charging station to the user's favorite list.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <param name="stationId">The ID of the charging station.</param>
+            <returns>A result indicating success or failure.</returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.GetFavoriteStationsAsync(System.Nullable{System.Guid})">
+            <summary>
+            Gets the list of favorite charging stations for a user.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <returns>The list of favorite charging stations.</returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.IsStationInFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Checks if a charging station is in the user's favorites.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <param name="stationId">The ID of the charging station.</param>
+            <returns>True if the station is in favorites; otherwise, false.</returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.RemoveStationFromFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Removes a charging station from the user's favorite list.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <param name="stationId">The ID of the charging station.</param>
+            <returns>A result indicating success or failure.</returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServicesController.AddService(System.Guid,System.Guid)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="requestId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServicesController.UpdateService(ShawahinAPI.Core.DTO.ServiceDto.ServiceResponseDto)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="serviceDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServicesController.RemoveService(System.Guid)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServiceTypeController.AddServiceType(ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeBaseDto)">
+            <summary>
+            Onlly for admin
+            </summary>
+            <param name="serviceTypeDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServiceTypeController.UpdateServiceType(System.Guid,ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeBaseDto)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="id"></param>
+            <param name="serviceTypeDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShawahinAPI.Application.Controllers.ServiceTypeController.RemoveServiceType(System.Guid)">
+            <summary>
+            Only for admin
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
 using ShawahinAPI.Services.Contract;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ShawahinAPI.Application.Controllers
 {
     [ApiController]
     [Route("api/charginginfo")]
+    [Authorize] // Assuming authentication is required to access this controller
+
     public class ChargingInfoController : ControllerBase
     {
         private readonly IChargerTypeService _chargerType;

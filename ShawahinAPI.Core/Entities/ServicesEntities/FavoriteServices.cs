@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShawahinAPI.Core.Entities
+namespace ShawahinAPI.Core.Entities.ServicesEntities
 {
 
     public class FavoriteServices

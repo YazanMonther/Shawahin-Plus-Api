@@ -1,23 +1,22 @@
 ﻿
 using ShawahinAPI.Core.Entities;
-using ShawahinAPI.Core.IRepositories.IChargingStationsRepositories;
-using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using ShawahinAPI.Core.Entities.ChargingStationsEntities;
+using ShawahinAPI.Core.IRepositories;
+
 
 namespace ShawahinAPI.Services.Implementation.Helpers
 {
     public static class StationsDataHelper
     {
+
         public static async Task<IEnumerable<T>?> AddStationsForeignData<T>(
             IEnumerable<T?> requests,
-            IUserGetRepository user,
-            IContactRepository contactGetById,
-            IStationOpeningHoursRepository hours,
-            ILocationsRepository locations,
-            IChargersRepository chargers,
-            IChargerTypeRepository chargerTypeGet) where T : ChargingStationBase // Assuming ChargingStationBase is a common base class or interface
+            IRepository<ApplicationUser> user,
+            IRepository<Contacts> contactGetById,
+            IRepository<StationOpeningHours> hours,
+            IRepository<Locations> locations,
+            IRepository<Chargers> chargers,
+            IRepository<ChargerType> chargerTypeGet) where T : ChargingStationBase // Assuming ChargingStationBase is a common base class or interface
         {
             var result = new List<T>();
 
@@ -25,18 +24,18 @@ namespace ShawahinAPI.Services.Implementation.Helpers
             {
                 if (req != null)
                 {
-                    req.Contact = await contactGetById.GetContactByIdAsync(req.ContactId);
+                    req.Contact = await contactGetById.GetByIdAsync(req.ContactId);
                     req.Location = await locations.GetByIdAsync(req.LocationId);
                     req.StationOpeningHours = await hours.GetByIdAsync(req.StationOpeningHoursId);
                     req.Chargers = await chargers.GetByIdAsync(req.ChargesId);
 
                     if (req is ChargingStationRequests chargingStationRequests && chargingStationRequests.UserId != null)
                     {
-                        chargingStationRequests.User = await user.GetUserByIdAsync(chargingStationRequests.UserId.Value);
+                        chargingStationRequests.User = await user.GetByIdAsync(chargingStationRequests.UserId.Value);
                     }
 
                     if (req.Chargers != null)
-                        req.Chargers.ChargerType = await chargerTypeGet.GetChargerTypeByIdAsync(req.Chargers.ChargerTypeId);
+                        req.Chargers.ChargerType = await chargerTypeGet.GetByIdAsync(req.Chargers.ChargerTypeId);
 
                     result.Add(req);
                 }

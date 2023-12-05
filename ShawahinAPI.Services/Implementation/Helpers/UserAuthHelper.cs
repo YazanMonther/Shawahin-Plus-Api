@@ -1,5 +1,7 @@
 ﻿using ShawahinAPI.Core.DTO.UserDTO;
+using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.Enums;
+using ShawahinAPI.Core.IRepositories;
 using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using System;
 using System.Collections.Generic;
@@ -11,14 +13,14 @@ namespace ShawahinAPI.Services.Implementation.Helpers
 {
     public static class UserAuthHelper
     {
-        public static async Task<ResultDto> ValidateUserAdminId(Guid? userId, IUserGetRepository userGetRepository)
+        public static async Task<ResultDto> ValidateUserAdminId(Guid? userId, IRepository<ApplicationUser> userGetRepository)
         {
             if (userId == null || userId == Guid.Empty)
             {
                 return new ResultDto { Succeeded = false, Message = "Empty User Id" };
             }
 
-            var user = await userGetRepository.GetUserByIdAsync(userId.Value);
+            var user = await userGetRepository.GetByIdAsync(userId.Value);
 
             if (user == null)
             {

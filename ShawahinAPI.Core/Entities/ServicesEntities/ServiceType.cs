@@ -1,12 +1,7 @@
 ﻿using ShawahinAPI.Core.Entities.ServicesEntities;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShawahinAPI.Core.Entities
+namespace ShawahinAPI.Core.Entities.ServicesEntitiess
 {
     public class ServiceType
     {

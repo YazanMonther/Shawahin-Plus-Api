@@ -4,7 +4,7 @@ using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.Entities.ChargingStationsEntities;
 using ShawahinAPI.Core.Entities.CummunityEntities;
 using ShawahinAPI.Core.Entities.ServicesEntities;
-
+using ShawahinAPI.Core.Entities.ServicesEntitiess;
 
 namespace ShawahinAPI.Persistence
 {

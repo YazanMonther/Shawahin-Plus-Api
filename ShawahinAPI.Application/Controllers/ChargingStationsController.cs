@@ -1,29 +1,51 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ChargingStationsDto;
-using ShawahinAPI.Services.Contract;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
-using ShawahinAPI.Services.Implementation;
+using System.Data;
 
 namespace ShawahinAPI.Application.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("api/chargingstations")]
     public class ChargingStationsController : ControllerBase
     {
         private readonly IChargingStationsService _chargingStationsService;
-        private readonly IChargingStationRequestService _chargingStationsReqService;
-        private readonly IFavoriteStationsService _userFavoriteStationsService;
 
-        public ChargingStationsController(IChargingStationsService ChargingStationsService,
-            IChargingStationRequestService ChargingStationsReqService,
-            IFavoriteStationsService userFavoriteStationsGetAll)
+        public ChargingStationsController(IChargingStationsService chargingStationsService)
         {
-            _chargingStationsService = ChargingStationsService;
-            _chargingStationsReqService = ChargingStationsReqService;
-            _userFavoriteStationsService = userFavoriteStationsGetAll;
+            _chargingStationsService = chargingStationsService;
         }
 
-        [HttpGet("getallStations")]
+
+        /// <summary>
+        /// only for Admin
+        /// </summary>
+        /// <param name="requestId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("{requestId}/{userId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AddNewChargingStation(Guid requestId, Guid userId)
+        {
+            try
+            {
+                var result = await _chargingStationsService.AddNewChargingStationAsync(requestId, userId);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest(result.Message);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllChargingStations()
         {
             try
@@ -33,116 +55,102 @@ namespace ShawahinAPI.Application.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
-                return BadRequest($"Failed to retrieve charging stations. Please try again later. {ex}");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
-        [HttpPost("addrequest")]
-        public async Task<IActionResult> AddChargingStationRequest(AddChargingStationsReqDto stationDto)
+        [HttpGet("GetbyId/{stationId}")]
+        public async Task<IActionResult> GetChargingStationById(Guid stationId)
         {
             try
             {
-                if (stationDto == null)
+                var chargingStation = await _chargingStationsService.GetChargingStationByIdAsync(stationId);
+
+                if (chargingStation == null)
                 {
-                    return BadRequest($"Invalid charging station request data.");
+                    return NotFound($"Charging Station with ID {stationId} not found.");
                 }
 
-                var result = await _chargingStationsReqService.AddChargingStationRequestAsync(stationDto);
+                return Ok(chargingStation);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpPut("update/{stationId}")]
+        public async Task<IActionResult> UpdateChargingStation(Guid stationId, ChargingStationDto updatedStation)
+        {
+            try
+            {
+                var result = await _chargingStationsService.UpdateChargingStationAsync(stationId, updatedStation);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest(result.Message);
+                }
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
-                return BadRequest($"Failed to add charging station request. Please try again later. {ex}");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
-        [HttpGet("getFavoriteStations/{userId}")]
-        public async Task<IActionResult> GetUserFavoriteStations(Guid? userId)
+        [HttpDelete("Remove/{stationId}")]
+        public async Task<IActionResult> RemoveChargingStation(Guid stationId)
         {
             try
             {
-                if (userId is null)
+                var result = await _chargingStationsService.RemoveChargingStationAsync(stationId);
+
+                if (!result.Succeeded)
                 {
-                    return BadRequest("Invalid user id");
+                    return BadRequest(result.Message);
                 }
 
-                var favoriteStations = await _userFavoriteStationsService.GetFavoriteStationsAsync(userId);
-                return Ok(favoriteStations);
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
-                return BadRequest($"Failed to retrieve user favorite stations. Please try again later. {ex}");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
-        [HttpPost("addFavoriteStations")]
-        public async Task<IActionResult> AddFavoriteStation(Guid? userId, Guid? stationId)
-        {
-            try
-            {
-                if (userId == null || stationId == null)
-                {
-                    return BadRequest("Invalid User or Station Id");
-                }
-
-                var addToFav = await _userFavoriteStationsService.AddStationToFavoritesAsync(userId, stationId);
-                return Ok(addToFav);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it accordingly
-                return BadRequest($"Failed to add station to favorites. Please try again later. {ex}");
-            }
-        }
-
-
-        [HttpGet("filtered")]
+        [HttpGet("filter")]
         public async Task<IActionResult> GetFilteredChargingStations(
-             string? chargerType,
-             string? paymentMethod,
-             string? paymentType,
-             string? chargerPower,
-             string? chargerStatus)
+            [FromQuery] string? chargerType,
+            [FromQuery] string? paymentMethod,
+            [FromQuery] string? paymentType,
+            [FromQuery] string? chargerPower,
+            [FromQuery] string? chargerStatus)
         {
             try
             {
-                var chargingStations = await _chargingStationsService
-                    .GetFilteredChargingStations(
+                var chargingStations = await _chargingStationsService.GetFilteredChargingStations(
                     chargerType, paymentMethod, paymentType, chargerPower, chargerStatus);
 
                 return Ok(chargingStations);
             }
-            catch (NullReferenceException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
-
-        [HttpGet("byUser/{userId}")]
-        public async Task<ActionResult<IEnumerable<ChargingStationDto?>>> GetChargingStationsByUserId(Guid? userId)
+        [HttpGet("GetbyUserId/{userId}")]
+        public async Task<IActionResult> GetChargingStationsByUserId(Guid userId)
         {
             try
             {
                 var chargingStations = await _chargingStationsService.GetChargingStationsByUserIdAsync(userId);
-
-                if (chargingStations == null || !chargingStations.Any())
-                {
-                    return NotFound("No charging stations found for the specified user ID.");
-                }
-
                 return Ok(chargingStations);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal Server Error : {ex}");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
     }

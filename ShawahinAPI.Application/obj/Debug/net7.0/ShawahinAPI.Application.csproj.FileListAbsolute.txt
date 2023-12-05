@@ -195,4 +195,6 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\ShawainTestUnit.dll
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\ShawahinAPI.Services.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\ShawainTestUnit.pdb
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\ShawahinAPI.Application.xml
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Debug\net7.0\ShawahinAPI.Application.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Debug\net7.0\ShawahinAPI.Application.xml

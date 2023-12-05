@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ChargingStationsDto;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
 
@@ -6,6 +7,8 @@ namespace ShawahinAPI.Application.Controllers
 {
     [ApiController]
     [Route("api/chargingstationcomments")]
+    [Authorize] // Assuming authentication is required to access this controller
+
     public class ChargerStationCommentsController : ControllerBase
     {
         private readonly IChargerStationCommentsService _chargerStationCommentsService;

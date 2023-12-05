@@ -19,7 +19,7 @@ namespace ShawahinAPI.Services.Contract.IChargingStationsServices
         /// </summary>
         /// <param name="chargerType">The charger type to add.</param>
         /// <returns>A <see cref="ResultDto"/> indicating the success or failure of the operation.</returns>
-        Task<ResultDto?> AddChargerTypeAsync(ChargerType? chargerType);
+        Task<ResultDto?> AddChargerTypeAsync(ChargerTypeDto? chargerType);
 
         /// <summary>
         /// Gets all charger types.
@@ -39,13 +39,13 @@ namespace ShawahinAPI.Services.Contract.IChargingStationsServices
         /// </summary>
         /// <param name="chargerType">The charger type to remove.</param>
         /// <returns>A <see cref="ResultDto"/> indicating the success or failure of the operation.</returns>
-        Task<ResultDto?> RemoveChargerTypeAsync(ChargerType chargerType);
+        Task<ResultDto?> RemoveChargerTypeAsync(ChargerTypeDto chargerType);
 
         /// <summary>
         /// Updates a charger type.
         /// </summary>
         /// <param name="chargerType">The charger type to update.</param>
         /// <returns>A <see cref="ResultDto"/> indicating the success or failure of the operation.</returns>
-        Task<ResultDto?> UpdateChargerTypeAsync(ChargerType chargerType);
+        Task<ResultDto?> UpdateChargerTypeAsync(ChargerTypeDto chargerType);
     }
 }
