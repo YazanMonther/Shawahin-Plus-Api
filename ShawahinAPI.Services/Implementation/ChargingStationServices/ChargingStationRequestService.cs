@@ -102,11 +102,19 @@ public class ChargingStationRequestService : IChargingStationRequestService
         if (requestId == null)
             return null;
         var getStation = await _chargingStationRequestRepository.GetByIdAsync(requestId.Value);
-
         if (getStation == null)
             return null;
 
-        var stationDto = ChargingReqMapper.MapToStationsDto(getStation);
+        var stationsReqDtosData = await StationsDataHelper.AddStationForeignData(getStation,
+            _userGetRepository, _contactRepository, _stationOpeningHoursRepository,
+            _locationsRepository, _chargersRepository, _chargerTypeRepository);
+
+        if (stationsReqDtosData is null)
+        {
+            throw new ArgumentNullException("No data transformed.");
+        }
+
+        var stationDto = ChargingReqMapper.MapToStationsDto(stationsReqDtosData);
 
 
         return stationDto;

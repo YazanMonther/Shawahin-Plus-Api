@@ -113,17 +113,22 @@ namespace ShawahinAPI.Services.Implementation
         public async Task<ChargingStationDto?> GetChargingStationByIdAsync(Guid? stationId)
         {
             if (stationId == null)
-                return null;
+                throw new ArgumentNullException("null stations id");
 
             var station = await _chargingStationRepository.GetByIdAsync(stationId.Value);
 
-            if (station != null)
+            if (station == null)
             {
-                var stationDto =  StationsMapper.MapToChargingStationsDto(station);
+                throw new ArgumentNullException(" no stations with this station id");
+            }
+            var addStationsData = await StationsDataHelper.AddStationForeignData(station, _userGetRepository,
+                _contactRepository, _stationOpeningHoursRepository,
+                _locationsRepository, _chargersRepository, _chargerTypeRepository);
+
+            var stationDto =  StationsMapper.MapToChargingStationsDto(addStationsData);
 
                 return stationDto;
-            }
-            return null;
+            
         }
 
         public async Task<ResultDto> UpdateChargingStationAsync(Guid? stationId, ChargingStationDto updatedStation)

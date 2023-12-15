@@ -10,3 +10,4 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Core\obj\Debug\net7.0\Shawahi
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Core\obj\Debug\net7.0\refint\ShawahinAPI.Core.dll
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Core\obj\Debug\net7.0\ShawahinAPI.Core.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Core\obj\Debug\net7.0\ref\ShawahinAPI.Core.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Core\obj\Debug\net7.0\ShawahinAPI.Core.sourcelink.json

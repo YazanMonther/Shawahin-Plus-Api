@@ -198,3 +198,4 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Debug\net7.0\ShawahinAPI.Application.xml
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Debug\net7.0\ShawahinAPI.Application.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Debug\net7.0\ShawahinAPI.Application.xml
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Debug\net7.0\ShawahinAPI.Application.sourcelink.json
