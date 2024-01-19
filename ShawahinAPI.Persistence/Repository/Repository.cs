@@ -73,6 +73,45 @@ namespace ShawahinAPI.Persistence.Repository
         {
             return await _dbSet.Where(condition).ToListAsync();
         }
+
+
+        /// Eager Loading
+        public async Task<IEnumerable<T?>> GetAllAsync(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _dbSet;
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<IEnumerable<T?>> GetByConditionAsync(Expression<Func<T, bool>> condition , params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _dbSet;
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include).Where(condition);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<T?> GetByIdAsync(Guid id, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _dbSet;
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.FirstOrDefaultAsync(entity => EF.Property<Guid>(entity, "Id") == id);
+        }
+
     }
 
 }

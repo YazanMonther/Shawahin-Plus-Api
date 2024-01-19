@@ -25,6 +25,8 @@ namespace ShawahinAPI.Persistence
         public DbSet<FavoriteStations> FavoriteStations { get; set; }
         public DbSet<ChargerStationComments> StationComments { get; set; }
         public DbSet<StationOpeningHours> chargingStationsHours { get; set; } 
+        public DbSet<Bookings> Bookings { get; set; }
+
 
         public DbSet<ServiceType> ServiceTypes { get; set; }
         public DbSet<Services> Services { get; set; }

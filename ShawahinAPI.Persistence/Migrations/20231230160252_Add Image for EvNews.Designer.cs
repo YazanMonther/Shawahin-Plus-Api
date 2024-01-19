@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShawahinAPI.Persistence;
 
@@ -11,9 +12,11 @@ using ShawahinAPI.Persistence;
 namespace ShawahinAPI.Persistence.Migrations
 {
     [DbContext(typeof(ShawahinDbContext))]
-    partial class ShawahinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231230160252_Add Image for EvNews")]
+    partial class AddImageforEvNews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

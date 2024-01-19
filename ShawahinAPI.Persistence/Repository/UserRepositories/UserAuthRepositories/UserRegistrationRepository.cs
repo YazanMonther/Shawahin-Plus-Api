@@ -21,7 +21,7 @@ namespace ShawahinAPI.Persistence.Repository.UserRepositories.UserAuthRepositori
             _userManager = userManager;
         }
 
-        public async Task<ResultDto> RegisterAsync(ApplicationUser user ,string password)
+        public async Task<ResultDto> RegisterAsync(ApplicationUser user ,string password,string role)
         {
 
             var result = await _userManager.CreateAsync(user, password);
@@ -29,6 +29,8 @@ namespace ShawahinAPI.Persistence.Repository.UserRepositories.UserAuthRepositori
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, user.UserRole.ToString());
+
+                await _userManager.AddToRoleAsync(user, role);
                 return new ResultDto { Succeeded = true, };
             }
             else
