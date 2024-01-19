@@ -56,7 +56,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="eventDto"> event to be added </param>
         /// <returns>result message</returns>
         [HttpPost("Add")]
-        [Authorize(Roles = "Admin")]
+     //   [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         public async Task<IActionResult> AddEvent([FromBody] CommunityEventBaseDto eventDto)
         {
             try
@@ -83,7 +83,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="eventDto"> event to be updated</param>
         /// <returns></returns>
         [HttpPut("Update/{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         public async Task<IActionResult> UpdateEvent(Guid id, [FromBody] CommunityEventBaseDto eventDto)
         {
             try
@@ -109,7 +109,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="id"> event id to be deleted</param>
         /// <returns>resutl message </returns>
         [HttpDelete("Remove/{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         public async Task<IActionResult> RemoveEvent(Guid id)
         {
             try

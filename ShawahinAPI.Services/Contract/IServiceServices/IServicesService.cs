@@ -45,5 +45,13 @@ namespace ShawahinAPI.Services.Contract.IServiceServices
         /// <param name="id">The ID of the services to remove.</param>
         /// <returns>The result of the operation.</returns>
         Task<ResultDto> RemoveServicesAsync(Guid id);
+
+        /// <summary>
+        /// Return all services with the same type
+        /// </summary>
+        /// <param name="typeId"></param>
+        /// <returns>list of services</returns>
+        Task<IEnumerable<ServiceResponseDto?>> GetServicesByTypeIdAsync(Guid typeId);
+
     }
 }

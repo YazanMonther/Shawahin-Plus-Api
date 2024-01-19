@@ -16,6 +16,7 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
 
         public Guid UserId { get; set; }
 
+
         public Guid PostId { get; set; }
 
         public string? CommentText { get; set; }

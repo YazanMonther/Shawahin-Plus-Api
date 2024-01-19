@@ -24,7 +24,7 @@ namespace ShawahinAPI.Services.Implementation.Helpers
                 {
                     Id = serviceRequest.Id,
                     ServiceName = serviceInfo?.ServiceName ?? null,
-                    ServiceTypeId = serviceInfo?.Id ?? Guid.Empty,
+                    ServiceTypeId = serviceType?.Id ?? Guid.Empty,
                     ServiceTypeName = serviceType?.ServiceTypeName ?? null,
                     PhoneNumber = serviceInfo?.PhoneNumber ?? null,
                     Description = serviceInfo?.Description ?? null,
@@ -69,29 +69,25 @@ namespace ShawahinAPI.Services.Implementation.Helpers
 
 
         public async static Task<IEnumerable<ServiceResponseDto>> ToResponseList(
-            IEnumerable<ShawahinAPI.Core.Entities.ServicesEntities.Services> services,
-            IRepository<ServiceInfo> repositoryInfo,
-            IRepository<ServiceType> repositoryType)
+            IEnumerable<ShawahinAPI.Core.Entities.ServicesEntities.Services> services
+                           )
         {
             List<ServiceResponseDto> serviceResponseDtos = new List<ServiceResponseDto>();
 
             foreach (ShawahinAPI.Core.Entities.ServicesEntities.Services service in services)
             {
-                var serviceInfo = await repositoryInfo.GetByIdAsync(service.ServiceInfoId);
-                var serviceType = await repositoryType.GetByIdAsync(serviceInfo?.ServiceTypeId ?? Guid.Empty);
-
                 serviceResponseDtos.Add(new ServiceResponseDto()
                 {
                     Id = service.Id,
-                    ServiceName = serviceInfo?.ServiceName ?? null,
-                    ServiceTypeId = serviceInfo?.Id ?? Guid.Empty,
-                    ServiceTypeName = serviceType?.ServiceTypeName ?? null,
-                    PhoneNumber = serviceInfo?.PhoneNumber ?? null,
-                    Description = serviceInfo?.Description ?? null,
+                    ServiceName = service.ServiceInfo?.ServiceName ?? null,
+                    ServiceTypeId = service.ServiceInfo.ServiceType.Id,
+                    ServiceTypeName = service.ServiceInfo.ServiceType?.ServiceTypeName ?? null,
+                    PhoneNumber = service.ServiceInfo?.PhoneNumber ?? null,
+                    Description = service.ServiceInfo?.Description ?? null,
                     UserId = service.UserId,
-                    Address = serviceInfo?.Address,
-                    City = serviceInfo?.City,
-                    ImageUrl = serviceInfo?.ImageUrl,
+                    Address = service.ServiceInfo?.Address,
+                    City = service.ServiceInfo?.City,
+                    ImageUrl = service.ServiceInfo?.ImageUrl,
                 });
             }
 
@@ -113,7 +109,7 @@ namespace ShawahinAPI.Services.Implementation.Helpers
             {
                 Id = service.Id,
                 ServiceName = serviceInfo?.ServiceName ?? null,
-                ServiceTypeId = serviceInfo?.Id ?? Guid.Empty,
+                ServiceTypeId = serviceType?.Id ?? Guid.Empty,
                 ServiceTypeName = serviceType?.ServiceTypeName ?? null,
                 PhoneNumber = serviceInfo?.PhoneNumber ?? null,
                 Description = serviceInfo?.Description ?? null,

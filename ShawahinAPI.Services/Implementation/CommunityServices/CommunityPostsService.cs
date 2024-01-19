@@ -2,6 +2,7 @@
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.IRepositories;
+using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers;
 using ShawahinAPI.Services.Contract.ICommunityServices;
 using System;
@@ -14,10 +15,14 @@ namespace ShawahinAPI.Services.Implementation.CommunityServices
     public class CommunityPostsService : ICommunityPostsService
     {
         private readonly IRepository<CommunityPosts> _repository;
+        private readonly IRepository<CommunityComments> _comRepository;
+        private readonly IUserGetRepository _userRepository;
 
-        public CommunityPostsService(IRepository<CommunityPosts> repository)
+        public CommunityPostsService(IUserGetRepository userRepository, IRepository<CommunityComments> comRepository,IRepository<CommunityPosts> repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _comRepository = comRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<ResultDto> AddPostAsync(CommunityPostBaseDto? postDto)
@@ -37,9 +42,21 @@ namespace ShawahinAPI.Services.Implementation.CommunityServices
             var posts = await _repository.GetAllAsync();
 
             // Map entities to DTOs as needed
-            var postDtos = EntityDtoMapper<CommunityPosts, CommunityPostResponseDto>.MapToDto(posts);
+            var postDtos = EntityDtoMapper<CommunityPosts, CommunityPostResponseDto>.MapToDto(posts).ToList();
 
-            return postDtos;
+            var updatedPostDtos = postDtos.Select( postDto =>
+            {
+                var comments =  _comRepository.GetByConditionAsync(c => c.PostId == postDto.Id).Result;
+                var user = _userRepository.GetUserByIdAsync(postDto.UserId).Result;
+
+                // Update the Comments property
+                postDto.NumberOfComments = comments.Count();
+                postDto.UserName = user.Fname + " " + user.Lname;
+
+                return postDto;
+            });
+
+            return updatedPostDtos;
         }
 
         public async Task<CommunityPostResponseDto?> GetPostByIdAsync(Guid postId)

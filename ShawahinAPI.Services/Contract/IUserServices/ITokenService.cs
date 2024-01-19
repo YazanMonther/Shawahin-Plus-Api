@@ -9,6 +9,6 @@ namespace ShawahinAPI.Services.Contract.IUserServices
 {
     public interface ITokenService
     {
-        string GenerateToken(ApplicationUser user);
+        string GenerateToken(ApplicationUser user, IList<string> roles);
     }
 }

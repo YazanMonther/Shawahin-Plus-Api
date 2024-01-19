@@ -18,6 +18,6 @@ namespace ShawahinAPI.Core.IRepositories.IUserRepository
         /// Register a new user account.
         /// </summary>
         /// <param name="user">User registration data.</param>
-        Task<ResultDto> RegisterAsync(ApplicationUser user, string password);
+        Task<ResultDto> RegisterAsync(ApplicationUser user, string password, string role);
     }
 }

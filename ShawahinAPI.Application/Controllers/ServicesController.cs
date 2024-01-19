@@ -31,6 +31,20 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+        [HttpGet("GetByTypeId/{typeId}")]
+        public async Task<IActionResult> GetServicesByTypeId(Guid typeId)
+        {
+            try
+            {
+                var services = await _servicesService.GetServicesByTypeIdAsync(typeId);
+                return Ok(services);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
         [HttpGet("GetById/{id}")]
         public async Task<IActionResult> GetServiceById(Guid id)
         {
@@ -57,7 +71,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="requestId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("Add/{requestId}/{userId}")]
         public async Task<IActionResult> AddService(Guid requestId, Guid userId)
         {
@@ -109,7 +123,7 @@ namespace ShawahinAPI.Application.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpDelete("Remove/{id}")]
         public async Task<IActionResult> RemoveService(Guid id)
         {

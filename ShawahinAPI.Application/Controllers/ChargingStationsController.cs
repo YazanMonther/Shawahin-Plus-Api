@@ -24,13 +24,19 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="requestId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("{requestId}/{userId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddNewChargingStation(Guid requestId, Guid userId)
         {
             try
             {
                 var result = await _chargingStationsService.AddNewChargingStationAsync(requestId, userId);
+
+
+                ////// Set CORS headers
+                //Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                //Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+                //Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
                 if (!result.Succeeded)
                 {

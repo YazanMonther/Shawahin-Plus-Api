@@ -7,7 +7,7 @@ namespace ShawahinAPI.Application.Controllers
 {
     [ApiController]
     [Route("api/charginginfo")]
-    [Authorize] // Assuming authentication is required to access this controller
+//    [Authorize] // Assuming authentication is required to access this controller
 
     public class ChargingInfoController : ControllerBase
     {

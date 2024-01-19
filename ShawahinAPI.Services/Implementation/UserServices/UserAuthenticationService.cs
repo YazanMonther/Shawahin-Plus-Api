@@ -1,4 +1,6 @@
-﻿using ShawahinAPI.Core.DTO.UserDTO;
+﻿using Microsoft.AspNetCore.Identity;
+using ShawahinAPI.Core.DTO.UserDTO;
+using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers.UserMappers;
 using ShawahinAPI.Services.Contract.IUserServices;
@@ -15,13 +17,16 @@ namespace ShawahinAPI.Services.Implementation.UserServices
     {
         private readonly IUserLoginRepository _authenticationRepository;
         private readonly IUserGetRepository _getUserRepository;
-        private readonly ITokenService _tokenService; 
+        private readonly ITokenService _tokenService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserAuthenticationService(IUserLoginRepository authenticationRepository, IUserGetRepository getUserRepository, ITokenService tokenService)
+
+        public UserAuthenticationService(UserManager<ApplicationUser> userManager, IUserLoginRepository authenticationRepository, IUserGetRepository getUserRepository, ITokenService tokenService)
         {
             _authenticationRepository = authenticationRepository;
             _getUserRepository = getUserRepository;
             _tokenService = tokenService;
+            _userManager = userManager;
         }
 
         public async Task<UserAuthenticationResultDto> AuthenticateAsync(UserLoginDto loginDto)
@@ -34,7 +39,7 @@ namespace ShawahinAPI.Services.Implementation.UserServices
             if (!isValid)
             {
                 var errors = validationResults.Select(r => r.ErrorMessage);
-                throw new ValidationException(string.Join(Environment.NewLine, errors));
+                throw new Exception(string.Join(Environment.NewLine, errors));
             }
 
 
@@ -48,7 +53,9 @@ namespace ShawahinAPI.Services.Implementation.UserServices
             }
 
             // Generate an access token
-            var accessToken = _tokenService.GenerateToken(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var accessToken = _tokenService.GenerateToken(user, roles.ToList());
+
 
             if (loginDto.Email == null)
             {

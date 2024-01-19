@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ServiceDto;
 using ShawahinAPI.Core.DTO.UserDTO;
+using ShawahinAPI.Services.Contract.IChargingStationsServices;
 using ShawahinAPI.Services.Contract.IServiceServices;
 
 
@@ -96,6 +97,26 @@ namespace ShawahinAPI.Application.Controllers
             {
                 // Log the exception if needed
                 return StatusCode(500, $"An unexpected error occurred while processing the request : {ex}.");
+            }
+        }
+
+        [HttpPut("Denay/{requestId}")]
+        public async Task<IActionResult> DenayServiceRequest(Guid requestId)
+        {
+            try
+            {
+                var result = await _serviceRequestService.DenayServiceRequestAsync(requestId);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest(result.Message);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
     }

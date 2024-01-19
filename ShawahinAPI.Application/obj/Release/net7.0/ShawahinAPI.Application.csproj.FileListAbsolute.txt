@@ -198,3 +198,10 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ref\ShawahinAPI.Application.dll
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\ShawahinAPI.Application.xml
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ShawahinAPI.Application.xml
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\obj\Release\net7.0\ShawahinAPI.Application.sourcelink.json
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\MailKit.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\MimeKit.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Application\bin\Release\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll

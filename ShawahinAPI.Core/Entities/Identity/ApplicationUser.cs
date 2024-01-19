@@ -27,6 +27,7 @@ namespace ShawahinAPI.Core.Entities
         public ICollection<FavoriteServices>? FavoriteServices { get; set; }
         public ICollection<ChargingStations>? ChargingStations { get; set; }
         public ICollection<ChargingStationRequests>? ChargingStationsRequests { get; set; }
+        public ICollection<Bookings>? bookings { get; set; }
 
     }
 }

@@ -44,5 +44,14 @@ namespace ShawahinAPI.Services.Contract.IChargingStationsServices
         /// <param name="requestId">The ID of the charging station request to remove.</param>
         /// <returns>A result indicating success or failure and an optional error message.</returns>
         Task<ResultDto> RemoveChargingStationRequestAsync(Guid? requestId);
+
+        /// <summary>
+        /// Denay Stations Request
+        /// </summary>
+        /// <param name="requestId"></param>
+        /// <returns></returns>
+        Task<ResultDto> DenayChargingStationRequestAsync(Guid? requestId);
+
+
     }
 }

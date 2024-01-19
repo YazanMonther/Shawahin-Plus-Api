@@ -1,11 +1,7 @@
 ﻿using ShawahinAPI.Core.Enums;
 using ShawahinAPI.Core.Mappers;
 using ShawahinAPI.Services.Contract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ShawahinAPI.Services.Implementation
 {

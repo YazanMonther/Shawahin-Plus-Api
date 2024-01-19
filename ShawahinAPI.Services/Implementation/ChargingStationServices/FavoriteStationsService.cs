@@ -57,7 +57,15 @@ namespace ShawahinAPI.Core.IRepositories
                 };
             }
 
-            // Retrieve the user and station entities from the repositories
+            var isfav = await this.IsStationInFavoritesAsync(userId, stationId);
+            if (isfav)
+            {
+                return new ResultDto
+                {
+                    Message = "Station is already on the favorite list",
+                    Succeeded = false
+                };
+            }
             var user = await _userGetRepository.GetByIdAsync(userId.Value);
             var station = await _chargingStationRepository.GetByIdAsync(stationId.Value);
 
@@ -75,6 +83,7 @@ namespace ShawahinAPI.Core.IRepositories
                 StationId = station.Id,
                 Id = Guid.NewGuid(),
                 UserId = user.Id,
+                
             };
 
             var addResult= await _userFavoriteStationsRepository.AddAsync(favorite);
@@ -83,6 +92,7 @@ namespace ShawahinAPI.Core.IRepositories
             {
                 station.FavoriteCount += 1;
               await  _chargingStationRepository.UpdateAsync(station);
+
             }
             return addResult;
         }
@@ -103,8 +113,16 @@ namespace ShawahinAPI.Core.IRepositories
                 throw new InvalidOperationException("Failed to retrieve favorite charging stations.");
             }
 
-            var stationTasks = chargingStations.Select(async f => await _chargingStationRepository.GetByIdAsync(f.Id));
-            var stations = await Task.WhenAll(stationTasks);
+            var stations = new List<ChargingStations>(); // Replace YourStationType with the actual type of charging stations
+
+            foreach (var chargingStation in chargingStations)
+            {
+                if (chargingStation != null)
+                {
+                    var station = await _chargingStationRepository.GetByIdAsync(chargingStation.StationId);
+                    stations.Add(station !);
+                }
+            }
 
             var addStationsData = await StationsDataHelper.AddStationsForeignData(stations, _userGetRepository,
                 _contactRepository, _stationOpeningHoursRepository,

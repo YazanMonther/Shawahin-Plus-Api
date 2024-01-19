@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShawahinAPI.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+317a6ff4fb6c2bf8ade2b1fe918fe456d1ab41e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShawahinAPI.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShawahinAPI.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

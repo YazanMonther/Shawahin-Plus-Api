@@ -9,6 +9,7 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
     public class CommunityCommentResponseDto : CommunityCommentBaseDto
     {
         public Guid Id { get; set; }
+        public string? name { get; set; }
 
     }
 }

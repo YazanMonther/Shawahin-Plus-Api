@@ -9,6 +9,6 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
 {
     public class CommunityEventResponseDto : CommunityEventBaseDto
     {
-        public Guid EventId {get;set;}
+        public Guid Id {get;set;}
     }
 }

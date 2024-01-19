@@ -4,6 +4,13 @@
         <name>ShawahinAPI.Application</name>
     </assembly>
     <members>
+        <member name="M:ShawahinAPI.Application.Controllers.ChargingStationRequestController.GetAllChargingStationRequests(System.Guid)">
+            <summary>
+            For Admin
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="M:ShawahinAPI.Application.Controllers.ChargingStationsController.AddNewChargingStation(System.Guid,System.Guid)">
             <summary>
             only for Admin
@@ -56,48 +63,6 @@
             </summary>
             <param name="newsId"></param>
             <returns></returns>
-        </member>
-        <member name="T:ShawahinAPI.Application.Controllers.FavoriteStationsController">
-            <summary>
-            Controller for managing favorite charging stations.
-            </summary>
-        </member>
-        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.#ctor(ShawahinAPI.Services.Contract.IChargingStationsServices.IFavoriteStationsService)">
-            <summary>
-            Constructor for the FavoriteStationsController.
-            </summary>
-            <param name="favoriteStationsService">The service for managing favorite charging stations.</param>
-        </member>
-        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.AddStationToFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
-            <summary>
-            Adds a charging station to the user's favorite list.
-            </summary>
-            <param name="userId">The ID of the user.</param>
-            <param name="stationId">The ID of the charging station.</param>
-            <returns>A result indicating success or failure.</returns>
-        </member>
-        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.GetFavoriteStationsAsync(System.Nullable{System.Guid})">
-            <summary>
-            Gets the list of favorite charging stations for a user.
-            </summary>
-            <param name="userId">The ID of the user.</param>
-            <returns>The list of favorite charging stations.</returns>
-        </member>
-        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.IsStationInFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
-            <summary>
-            Checks if a charging station is in the user's favorites.
-            </summary>
-            <param name="userId">The ID of the user.</param>
-            <param name="stationId">The ID of the charging station.</param>
-            <returns>True if the station is in favorites; otherwise, false.</returns>
-        </member>
-        <member name="M:ShawahinAPI.Application.Controllers.FavoriteStationsController.RemoveStationFromFavoritesAsync(System.Nullable{System.Guid},System.Nullable{System.Guid})">
-            <summary>
-            Removes a charging station from the user's favorite list.
-            </summary>
-            <param name="userId">The ID of the user.</param>
-            <param name="stationId">The ID of the charging station.</param>
-            <returns>A result indicating success or failure.</returns>
         </member>
         <member name="M:ShawahinAPI.Application.Controllers.ServicesController.AddService(System.Guid,System.Guid)">
             <summary>

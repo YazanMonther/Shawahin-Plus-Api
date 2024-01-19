@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ChargingStationsDto;
 using ShawahinAPI.Core.Enums;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
@@ -6,7 +7,7 @@ using ShawahinAPI.Services.Contract.IChargingStationsServices;
 namespace ShawahinAPI.Application.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] 
     public class ChargingStationRequestController : ControllerBase
     {
         private readonly IChargingStationRequestService _chargingStationRequestService;
@@ -36,12 +37,24 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// For Admin
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [Authorize(AuthenticationSchemes = "Bearer",Roles = "Admin")]
         [HttpGet("GetAllRequest")]
         public async Task<IActionResult> GetAllChargingStationRequests(Guid userId)
         {
             try
             {
                 var stationsReq = await _chargingStationRequestService.GetAllChargingStationRequestsAsync(userId);
+
+                //// Set CORS headers
+                Response.Headers.Add("Access-Control-Allow-Origin", "*");
+                Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+                Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
                 return Ok(stationsReq);
             }
             catch (Exception ex)
@@ -49,6 +62,7 @@ namespace ShawahinAPI.Application.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
         [HttpGet("GetRequestById/{requestId}")]
         public async Task<IActionResult> GetChargingStationRequestById(Guid requestId)
@@ -70,6 +84,7 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+
         [HttpPut("Update/{requestId}")]
         public async Task<IActionResult> UpdateChargingStationRequestStatus(Guid requestId, RequestStatus status)
         {
@@ -90,12 +105,33 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+
         [HttpDelete("Delete/{requestId}")]
         public async Task<IActionResult> RemoveChargingStationRequest(Guid requestId)
         {
             try
             {
                 var result = await _chargingStationRequestService.RemoveChargingStationRequestAsync(requestId);
+
+                if (!result.Succeeded)
+                {
+                    return BadRequest(result.Message);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpPut("Denay/{requestId}")]
+        public async Task<IActionResult> DenayChargingStationRequest(Guid requestId)
+        {
+            try
+            {
+                var result = await _chargingStationRequestService.DenayChargingStationRequestAsync(requestId);
 
                 if (!result.Succeeded)
                 {

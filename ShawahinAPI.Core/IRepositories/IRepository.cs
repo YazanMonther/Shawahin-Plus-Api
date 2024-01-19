@@ -1,4 +1,5 @@
 ﻿using ShawahinAPI.Core.DTO.UserDTO;
+using ShawahinAPI.Core.Entities.ChargingStationsEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,12 @@ namespace ShawahinAPI.Core.IRepositories
 
         Task<IEnumerable<T?>> GetByConditionAsync(Expression<Func<T, bool>> condition);
 
+        //Eager Loading
+
+        Task<IEnumerable<T?>> GetByConditionAsync(Expression<Func<T, bool>> condition, params Expression<Func<T, object>>[] includes);
+
+        Task<IEnumerable<T?>> GetAllAsync(params Expression<Func<T, object>>[] includes);
+
+        Task<T?> GetByIdAsync(Guid id, params Expression<Func<T, object>>[] includes);
     }
 }

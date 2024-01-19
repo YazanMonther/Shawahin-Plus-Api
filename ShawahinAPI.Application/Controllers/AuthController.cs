@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.IRepositories.IChargingStationsRepositories;
 using ShawahinAPI.Services.Contract.IUserServices;
@@ -29,9 +30,9 @@ namespace ShawahinAPI.Application.Controllers
                 var result = await _authenticationService.AuthenticateAsync(loginDto);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(new { error = "Invalid Email or Password" });
             }
         }
 
@@ -47,7 +48,7 @@ namespace ShawahinAPI.Application.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { errors = result.Message });
+                    return BadRequest(new { message = result.Message });
                 }
             }
             catch (Exception ex)

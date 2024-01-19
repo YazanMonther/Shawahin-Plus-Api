@@ -1,4 +1,5 @@
-﻿using ShawahinAPI.Core.DTO.ChargingStationsDto;
+﻿using ShawahinAPI.Core.DTO;
+using ShawahinAPI.Core.DTO.ChargingStationsDto;
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.Entities.ChargingStationsEntities;
@@ -7,8 +8,10 @@ using ShawahinAPI.Core.IRepositories;
 using ShawahinAPI.Core.IRepositories.IChargingStationsRepositories;
 using ShawahinAPI.Core.Mappers;
 using ShawahinAPI.Core.Mappers.ChargingStationsMapper;
+using ShawahinAPI.Services.Contract;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
 using ShawahinAPI.Services.Implementation.Helpers;
+
 
 namespace ShawahinAPI.Services.Implementation
 {
@@ -26,7 +29,7 @@ namespace ShawahinAPI.Services.Implementation
         private readonly IRepository<ChargerType> _chargerTypeRepository;
         private readonly IRepository<ChargingStations> _chargingStationRepository;
         private readonly IStationGetRepository _stationGetRepository;
-
+        private readonly IEmailService _emailService;
 
 
         public ChargingStationsService(IRepository<ChargingStationRequests> chargingStationRequestRepository,
@@ -37,7 +40,7 @@ namespace ShawahinAPI.Services.Implementation
         IRepository<Chargers> chargersGetByIdRepository,
         IRepository<ChargerType> chargerTypeByIdRepository,
         IRepository<ChargingStations> chargerTypeRepository,
-        IStationGetRepository station)
+        IStationGetRepository station, IEmailService emailService)
         {
             _chargingStationRepository = chargerTypeRepository;
             _chargingStationRequestRepository = chargingStationRequestRepository;
@@ -48,6 +51,7 @@ namespace ShawahinAPI.Services.Implementation
             _chargersRepository = chargersGetByIdRepository;
             _chargerTypeRepository = chargerTypeByIdRepository;
             _stationGetRepository = station;
+            _emailService = emailService;
         }
 
         #region IChargingStationsService Implementation
@@ -71,6 +75,10 @@ namespace ShawahinAPI.Services.Implementation
             {
                 return new ResultDto() { Succeeded = false, Message = "Invalid Request Id" };
             }
+            if(chargerRequest.Request_Status == RequestStatus.Accepted)
+            {
+                return new ResultDto() { Succeeded = false, Message = "Station Request is already Accepted" };
+            }
 
             var chargingStations = await StationsMapper.MapToChargingStationsAsync(chargerRequest,
                 _contactRepository, _stationOpeningHoursRepository,
@@ -78,7 +86,7 @@ namespace ShawahinAPI.Services.Implementation
            
 
             var addingResult = await _chargingStationRepository.AddAsync(chargingStations);
-
+                    
             var getStationReq = await _chargingStationRequestRepository.GetByIdAsync(chargerRequest.Id);
 
             if (getStationReq == null)
@@ -89,23 +97,51 @@ namespace ShawahinAPI.Services.Implementation
             getStationReq.Request_Status = RequestStatus.Accepted;
             var statusUpdate = await _chargingStationRequestRepository.UpdateAsync(getStationReq);
 
+            if (addingResult.Succeeded)
+            {
+                var User = await _userGetRepository.GetByIdAsync(userId.Value );
+                try
+                {
+                    EmailRequest emailRequestAccepted = new EmailRequest()
+                    {
+                        ToEmail = User?.Email!,
+                        Subject = "Station Request Accepted",
+                        Body = $"Dear User,\n\n" +
+                                $"Congratulations! Your Station Adding Request has been accepted.\n" +
+                                $"We appreciate your contribution to our charging network.\n" +
+                                $"Thank you for choosing our services.\n\n" +
+                                $"Best regards,\n" +
+                                $"Shawahin Plus"
+                    };
+                    await _emailService.SendEmailAsync(emailRequestAccepted);
+
+                }
+                catch (Exception ex)
+                {
+
+                    return new ResultDto { Succeeded = addingResult.Succeeded, Message = $"{addingResult.Message}, Error sending email: {ex.Message}" };
+                }
+            }
             return addingResult;
         }
 
         public async Task<IEnumerable<ChargingStationDto?>> GetAllChargingStationsAsync()
         {
-            var chargingStations = await _chargingStationRepository.GetAllAsync();
 
-            var addStationsData = await StationsDataHelper.AddStationsForeignData(chargingStations, _userGetRepository,
-                _contactRepository, _stationOpeningHoursRepository,
-                _locationsRepository, _chargersRepository, _chargerTypeRepository);
+            // using Eager loading
+            var chargingStations = await _chargingStationRepository.GetAllAsync(c =>c.User,c => c.Contact,
+                c =>c.StationOpeningHours,c =>c.Location , c => c.Chargers , c =>c.Chargers.ChargerType);
 
-            if(addStationsData is null)
+            //var addStationsData = await StationsDataHelper.AddStationsForeignData(chargingStations, _userGetRepository,
+            //    _contactRepository, _stationOpeningHoursRepository,
+            //    _locationsRepository, _chargersRepository, _chargerTypeRepository);
+
+            if(chargingStations is null)
             {
                 throw new ArgumentNullException("No charging stations Retrived .");
             }
 
-            var stationsDtoList = StationsMapper.MapToChargingStationsListDto(addStationsData);
+            var stationsDtoList = StationsMapper.MapToChargingStationsListDto(chargingStations);
 
             return stationsDtoList;
         }
@@ -115,17 +151,18 @@ namespace ShawahinAPI.Services.Implementation
             if (stationId == null)
                 throw new ArgumentNullException("null stations id");
 
-            var station = await _chargingStationRepository.GetByIdAsync(stationId.Value);
+            var station = await _chargingStationRepository.GetByIdAsync(stationId.Value, c => c.User, c => c.Contact,
+                c => c.StationOpeningHours, c => c.Location, c => c.Chargers, c => c.Chargers.ChargerType);
 
             if (station == null)
             {
                 throw new ArgumentNullException(" no stations with this station id");
             }
-            var addStationsData = await StationsDataHelper.AddStationForeignData(station, _userGetRepository,
-                _contactRepository, _stationOpeningHoursRepository,
-                _locationsRepository, _chargersRepository, _chargerTypeRepository);
+            //var addStationsData = await StationsDataHelper.AddStationForeignData(station, _userGetRepository,
+            //    _contactRepository, _stationOpeningHoursRepository,
+            //    _locationsRepository, _chargersRepository, _chargerTypeRepository);
 
-            var stationDto =  StationsMapper.MapToChargingStationsDto(addStationsData);
+            var stationDto =  StationsMapper.MapToChargingStationsDto(station);
 
                 return stationDto;
             
@@ -145,7 +182,7 @@ namespace ShawahinAPI.Services.Implementation
 
                 return updateResult;
             }
-            return new ResultDto { Succeeded = false, Message = "Error updating charging station." };
+            return new ResultDto { Succeeded = false, Message = "Invalid stationId Id." };
 
         }
 
@@ -163,7 +200,7 @@ namespace ShawahinAPI.Services.Implementation
                     return removeResult;
             }
 
-            return new ResultDto { Succeeded = false, Message = "Error removing charging station." };
+            return new ResultDto { Succeeded = false, Message = "No stations with this stationsId." };
         }
 
         public async Task<IEnumerable<ChargingStationDto?>> GetFilteredChargingStations(string? chargerType,

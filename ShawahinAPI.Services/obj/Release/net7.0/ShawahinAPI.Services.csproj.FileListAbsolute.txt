@@ -13,3 +13,4 @@ C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\S
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\refint\ShawahinAPI.Services.dll
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.pdb
 C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ref\ShawahinAPI.Services.dll
+C:\Users\DELL\source\repos\ShawahinAPI\ShawahinAPI.Services\obj\Release\net7.0\ShawahinAPI.Services.sourcelink.json

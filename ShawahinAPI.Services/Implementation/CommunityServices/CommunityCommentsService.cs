@@ -2,6 +2,7 @@
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.IRepositories;
+using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers;
 using ShawahinAPI.Services.Contract.ICommunityServices;
 
@@ -11,10 +12,13 @@ namespace ShawahinAPI.Services.Implementation.CommunityServices
     public class CommunityCommentsService : ICommunityCommentsService
     {
         private readonly IRepository<CommunityComments> _repository;
+        private readonly IUserGetRepository _userRepository;
 
-        public CommunityCommentsService(IRepository<CommunityComments> repository)
+
+        public CommunityCommentsService(IUserGetRepository userRepository,IRepository<CommunityComments> repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            this._userRepository = userRepository;
         }
 
         public async Task<ResultDto> AddCommentAsync(CommunityCommentBaseDto commentDto)
@@ -26,23 +30,32 @@ namespace ShawahinAPI.Services.Implementation.CommunityServices
             return result;
         }
 
-        public async Task<IEnumerable<CommunityCommentBaseDto?>> GetAllCommentsAsync()
+        public async Task<IEnumerable<CommunityCommentResponseDto?>> GetAllCommentsAsync()
         {
             var comments = await _repository.GetAllAsync();
 
             // Map entities to DTOs as needed
-            var commentDtos = EntityDtoMapper<CommunityComments, CommunityCommentBaseDto>.MapToDto(comments);
-
+            var commentDtos = EntityDtoMapper<CommunityComments, CommunityCommentResponseDto>.MapToDto(comments);
+            foreach (var item in commentDtos)
+            {
+                var user = await _userRepository.GetUserByIdAsync(item.UserId);
+                item.name = user?.Fname + " " + user?.Lname;
+            }
             return commentDtos;
         }
 
-        public async Task<IEnumerable<CommunityCommentBaseDto?>> GetCommentsByPostIdAsync(Guid postId)
+        public async Task<IEnumerable<CommunityCommentResponseDto?>> GetCommentsByPostIdAsync(Guid postId)
         {
             var comments = await _repository.GetByConditionAsync(c => c.PostId == postId);
 
             // Map entities to DTOs as needed
-            var commentDtos = EntityDtoMapper<CommunityComments, CommunityCommentBaseDto>.MapToDto(comments);
+            var commentDtos = EntityDtoMapper<CommunityComments, CommunityCommentResponseDto>.MapToDto(comments);
 
+            foreach (var item in commentDtos)
+            {
+                var user = await _userRepository.GetUserByIdAsync(item.UserId);
+                item.name = user?.Fname +" "+user?.Lname;
+            }
             return commentDtos;
         }
 

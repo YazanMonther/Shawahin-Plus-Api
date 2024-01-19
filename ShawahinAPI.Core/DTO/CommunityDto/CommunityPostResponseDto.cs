@@ -8,6 +8,8 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
 {
     public  class CommunityPostResponseDto : CommunityPostBaseDto
     {
-        public Guid PostId { get; set; }
+        public Guid Id { get; set; }
+        public int NumberOfComments { get; set; }
+        public string? UserName { get; set; }
     }
 }

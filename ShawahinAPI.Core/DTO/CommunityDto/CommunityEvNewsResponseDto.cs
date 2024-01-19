@@ -8,6 +8,6 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
 {
     public class CommunityEvNewsResponseDto : CommunityEvNewsBaseDto
     {
-        public Guid NewsId { get; set; }
+        public Guid Id { get; set; }
     }
 }

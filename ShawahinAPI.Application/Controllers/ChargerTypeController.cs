@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ChargingStationsDto;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
 
@@ -49,6 +50,7 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("Add")]
         public async Task<IActionResult> AddChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {
@@ -69,6 +71,7 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {
@@ -89,6 +92,8 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
+
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpDelete("Delete")]
         public async Task<IActionResult> RemoveChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {

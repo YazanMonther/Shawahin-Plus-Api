@@ -7,6 +7,9 @@ using ShawahinAPI.Core.IRepositories;
 using ShawahinAPI.Core.Mappers.ChargingStationsReqMapper;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
 using ShawahinAPI.Services.Implementation.Helpers;
+using ShawahinAPI.Services.Contract;
+using ShawahinAPI.Core.DTO;
+using static System.Collections.Specialized.BitVector32;
 
 public class ChargingStationRequestService : IChargingStationRequestService
 {
@@ -17,6 +20,7 @@ public class ChargingStationRequestService : IChargingStationRequestService
     private readonly IRepository<Locations> _locationsRepository;
     private readonly IRepository<Chargers> _chargersRepository;
     private readonly IRepository<ChargerType> _chargerTypeRepository;
+    private readonly IEmailService _emailService;
 
     public ChargingStationRequestService(
         IRepository<ChargingStationRequests> chargingStationRequestRepository,
@@ -25,7 +29,7 @@ public class ChargingStationRequestService : IChargingStationRequestService
         IRepository<StationOpeningHours> stationOpeningHoursGetRepository,
         IRepository<Locations> locationsByIdRepository,
         IRepository<Chargers> chargersGetByIdRepository,
-        IRepository<ChargerType> chargerTypeByIdRepository)
+        IRepository<ChargerType> chargerTypeByIdRepository, IEmailService emailService)
     {
         _chargingStationRequestRepository = chargingStationRequestRepository;
         _userGetRepository = userGetRepository;
@@ -34,6 +38,7 @@ public class ChargingStationRequestService : IChargingStationRequestService
         _locationsRepository = locationsByIdRepository;
         _chargersRepository = chargersGetByIdRepository;
         _chargerTypeRepository = chargerTypeByIdRepository;
+        _emailService = emailService;
     }
 
     #region IChargingStationRequestService Implementation
@@ -65,6 +70,31 @@ public class ChargingStationRequestService : IChargingStationRequestService
 
         var addingStationsRe = await _chargingStationRequestRepository.AddAsync(stationToAdd);
 
+        if (addingStationsRe.Succeeded)
+        {
+            var User = await _userGetRepository.GetByIdAsync(stationDto.UserId);
+            try
+            {
+                EmailRequest emailRequestSubmission = new EmailRequest()
+                {
+                    ToEmail = User?.Email!,
+                    Subject = "Station Request Submission",
+                    Body = $"Dear User,\n\n" +
+                            $"Thank you for submitting a Station Adding Request.\n" +
+                            $"Our team will review the provided information shortly.\n" +
+                            $"You will receive an email once a decision has been made regarding your request.\n\n" +
+                            $"Best regards,\n" +
+                            $"Shawahin Plus"
+                };
+                await _emailService.SendEmailAsync(emailRequestSubmission);
+
+            }
+            catch (Exception ex)
+            {
+
+                return new ResultDto { Succeeded = addingStationsRe.Succeeded, Message = $"{addingStationsRe.Message}, Error sending email: {ex.Message}" };
+            }
+        }
         return addingStationsRe;
     }
     #endregion
@@ -80,18 +110,19 @@ public class ChargingStationRequestService : IChargingStationRequestService
             throw new UnauthorizedAccessException($"User not authorized: {AuthCheck.Message}");
         }
 
-        var stationsReqDto = await _chargingStationRequestRepository.GetAllAsync();
+        var stationsReqDto = await _chargingStationRequestRepository.GetAllAsync(c => c.User, c => c.Contact,
+                c => c.StationOpeningHours, c => c.Location, c => c.Chargers, c => c.Chargers.ChargerType);
 
-        var stationsReqDtosData = await StationsDataHelper.AddStationsForeignData(stationsReqDto,
-            _userGetRepository, _contactRepository, _stationOpeningHoursRepository,
-            _locationsRepository, _chargersRepository, _chargerTypeRepository);
+        //var stationsReqDtosData = await StationsDataHelper.AddStationsForeignData(stationsReqDto,
+        //    _userGetRepository, _contactRepository, _stationOpeningHoursRepository,
+        //    _locationsRepository, _chargersRepository, _chargerTypeRepository);
 
-        if (stationsReqDtosData is null)
+        if (stationsReqDto is null)
         {
             throw new ArgumentNullException("No data transformed.");
         }
 
-        return ChargingReqListMapper.MapToStationsDto(stationsReqDtosData);
+        return ChargingReqListMapper.MapToStationsDto(stationsReqDto);
     }
     #endregion
 
@@ -101,20 +132,22 @@ public class ChargingStationRequestService : IChargingStationRequestService
     {
         if (requestId == null)
             return null;
-        var getStation = await _chargingStationRequestRepository.GetByIdAsync(requestId.Value);
+        var getStation = await _chargingStationRequestRepository.GetByIdAsync(requestId.Value, c => c.User, c => c.Contact,
+                c => c.StationOpeningHours, c => c.Location, c => c.Chargers, c => c.Chargers.ChargerType);
+     
         if (getStation == null)
             return null;
 
-        var stationsReqDtosData = await StationsDataHelper.AddStationForeignData(getStation,
-            _userGetRepository, _contactRepository, _stationOpeningHoursRepository,
-            _locationsRepository, _chargersRepository, _chargerTypeRepository);
+        //var stationsReqDtosData = await StationsDataHelper.AddStationForeignData(getStation,
+        //    _userGetRepository, _contactRepository, _stationOpeningHoursRepository,
+        //    _locationsRepository, _chargersRepository, _chargerTypeRepository);
 
-        if (stationsReqDtosData is null)
+        if (getStation is null)
         {
             throw new ArgumentNullException("No data transformed.");
         }
 
-        var stationDto = ChargingReqMapper.MapToStationsDto(stationsReqDtosData);
+        var stationDto = ChargingReqMapper.MapToStationsDto(getStation);
 
 
         return stationDto;
@@ -159,11 +192,66 @@ public class ChargingStationRequestService : IChargingStationRequestService
             return new ResultDto() { Succeeded = false, Message = "Invalid request Id " };
         }
 
+
         var removeResult = await _chargingStationRequestRepository.RemoveAsync(getStationReq);
 
         return removeResult;
     }
     #endregion
 
+
+    public async Task<ResultDto> DenayChargingStationRequestAsync(Guid? requestId)
+    {
+        if (requestId == null)
+        {
+            return new ResultDto() { Succeeded = false, Message = "Invalid request Id " };
+        }
+
+        var getStationReq = await _chargingStationRequestRepository.GetByIdAsync(requestId.Value);
+
+        if (getStationReq == null)
+        {
+            return new ResultDto() { Succeeded = false, Message = "Invalid request Id " };
+        }
+        if(getStationReq.Request_Status == RequestStatus.Denied)
+        {
+            return new ResultDto() { Succeeded = false, Message = "Station Request Already Denied" };
+        }
+        if (getStationReq.Request_Status == RequestStatus.Accepted)
+        {
+            return new ResultDto() { Succeeded = false, Message = "cant denay Accepted Request" };
+        }
+
+        getStationReq.Request_Status = RequestStatus.Denied;
+        var DenayResult = await _chargingStationRequestRepository.UpdateAsync(getStationReq);
+
+        if (DenayResult.Succeeded)
+        {
+            var User = await _userGetRepository.GetByIdAsync(getStationReq.UserId.Value);
+            try
+            {
+                EmailRequest emailRequestDenied = new EmailRequest()
+                {
+                    ToEmail = User?.Email!,
+                    Subject = "Station Request Denied",
+                    Body = $"Dear User,\n\n" +
+                            $"We regret to inform you that your Station Adding Request has been denied.\n" +
+                            $"Please review the provided information and ensure it meets our requirements.\n" +
+                            $"Feel free to contact our support for further assistance.\n\n" +
+                            $"Best regards,\n" +
+                            $"Shawahin Plus"
+                };
+                await _emailService.SendEmailAsync(emailRequestDenied);
+                return new ResultDto() { Succeeded = true, Message = "Station Request Denied " };
+
+            }
+            catch (Exception ex)
+            {
+              return new ResultDto { Succeeded = DenayResult.Succeeded, Message = $"{DenayResult.Message}, Error sending email: {ex.Message}" };
+            }
+        }
+        return new ResultDto() { Succeeded = false, Message = "Failed to Denay Request" };
+
+    }
     #endregion
 }

@@ -40,6 +40,9 @@ namespace ShawahinAPI.Services.Contract.IServiceServices
         /// <param name="id">The ID of the service request to remove.</param>
         /// <returns>The result of the operation.</returns>
         Task<ResultDto> RemoveServiceRequestAsync(Guid id);
+
+
+        Task<ResultDto> DenayServiceRequestAsync(Guid? requestId);
     }
 
 }

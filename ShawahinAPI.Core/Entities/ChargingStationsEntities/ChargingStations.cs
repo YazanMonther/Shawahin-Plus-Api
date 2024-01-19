@@ -27,5 +27,7 @@ namespace ShawahinAPI.Core.Entities
 
         public double TotalRevenue { get; set; } 
 
+        public ICollection<Bookings>? bookings { get; set; }
+
     }
 }

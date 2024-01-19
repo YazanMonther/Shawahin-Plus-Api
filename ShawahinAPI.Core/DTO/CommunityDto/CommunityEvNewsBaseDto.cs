@@ -8,11 +8,12 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
 {
     public class CommunityEvNewsBaseDto
     {
-        public Guid UserId { get; set; }
+        public Guid UserPostId { get; set; }
 
         public string? Title { get; set; }
         
         public string? Content { get; set; }
+        public string? ImageUrl { get; set; }
 
         public DateTime PublishDate { get; set; }
     }

@@ -25,14 +25,14 @@ namespace ShawahinAPI.Services.Contract.ICommunityServices
         /// Gets all community comments.
         /// </summary>
         /// <returns>A task representing the asynchronous operation that returns a collection of community comments.</returns>
-        Task<IEnumerable<CommunityCommentBaseDto?>> GetAllCommentsAsync();
+        Task<IEnumerable<CommunityCommentResponseDto?>> GetAllCommentsAsync();
 
         /// <summary>
         /// Gets community comments associated with a specific post ID.
         /// </summary>
         /// <param name="postId">The ID of the post.</param>
         /// <returns>A task representing the asynchronous operation that returns a collection of community comments.</returns>
-        Task<IEnumerable<CommunityCommentBaseDto?>> GetCommentsByPostIdAsync(Guid postId);
+        Task<IEnumerable<CommunityCommentResponseDto?>> GetCommentsByPostIdAsync(Guid postId);
 
         /// <summary>
         /// Removes a community comment.

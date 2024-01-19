@@ -60,7 +60,7 @@ namespace ShawahinAPI.Application.Controllers
         ///         [Authorize(Roles = "Admin")]
 
         [HttpPost("Add")]
-        public async Task<IActionResult> AddNews([FromBody] CommunityEvNewsBaseDto newsDto)
+        public async Task<IActionResult> AddNews( CommunityEvNewsBaseDto newsDto)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="newsDto"></param>
         /// <returns></returns>
         [HttpPut("Update/{newsId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
 
         public async Task<IActionResult> UpdateNews(Guid newsId, [FromBody] CommunityEvNewsBaseDto newsDto)
         {
@@ -113,7 +113,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <returns></returns>
 
         [HttpDelete("Remove/{newsId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
 
         public async Task<IActionResult> RemoveNews(Guid newsId)
         {
