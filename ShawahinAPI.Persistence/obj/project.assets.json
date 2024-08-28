@@ -4513,11 +4513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
       "projectName": "ShawahinAPI.Persistence",
-      "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
+      "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4526,12 +4526,15 @@
       "originalTargetFrameworks": [
         "net7.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-              "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+            "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
             }
           }
         }
@@ -4540,6 +4543,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4591,7 +4599,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

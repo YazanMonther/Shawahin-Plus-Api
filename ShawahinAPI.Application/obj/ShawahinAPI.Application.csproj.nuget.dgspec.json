@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj": {}
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
         "projectName": "ShawahinAPI.Application",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -20,21 +20,24 @@
         "originalTargetFrameworks": [
           "net7.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
               },
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj"
               },
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj"
               },
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\ShawainTestUnit.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\ShawainTestUnit.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\ShawainTestUnit.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\ShawainTestUnit.csproj"
               }
             }
           }
@@ -43,6 +46,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -111,18 +119,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
         "projectName": "ShawahinAPI.Core",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -131,6 +139,9 @@
         "originalTargetFrameworks": [
           "net7.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
@@ -141,6 +152,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -184,18 +200,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
         "projectName": "ShawahinAPI.Persistence",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -204,12 +220,15 @@
         "originalTargetFrameworks": [
           "net7.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
               }
             }
           }
@@ -218,6 +237,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -269,18 +293,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
         "projectName": "ShawahinAPI.Services",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -289,12 +313,15 @@
         "originalTargetFrameworks": [
           "net7.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
               }
             }
           }
@@ -303,6 +330,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -342,18 +374,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\ShawainTestUnit.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\ShawainTestUnit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\ShawainTestUnit.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\ShawainTestUnit.csproj",
         "projectName": "ShawainTestUnit",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\ShawainTestUnit.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\ShawainTestUnit.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawainTestUnit\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawainTestUnit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -362,18 +394,21 @@
         "originalTargetFrameworks": [
           "net7.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
               },
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj"
               },
-              "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
-                "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj"
               }
             }
           }
@@ -382,6 +417,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -433,7 +473,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

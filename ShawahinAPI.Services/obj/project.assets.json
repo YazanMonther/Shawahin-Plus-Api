@@ -2506,11 +2506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
       "projectName": "ShawahinAPI.Services",
-      "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+      "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Services\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2519,12 +2519,15 @@
       "originalTargetFrameworks": [
         "net7.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-              "projectPath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+            "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
             }
           }
         }
@@ -2533,6 +2536,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2572,8 +2580,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MimeKit' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-gmc6-fwg3-75m5",
+      "libraryId": "MimeKit",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 7.0.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

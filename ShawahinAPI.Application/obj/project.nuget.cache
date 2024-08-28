@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SDoiyCg1Yzc1aHRJoyMIgvxTfMLkk8eXWVLdfievXZ2LRtkLDl9CoYGjtyr9Q4zsMtUsOSa5K7KaIvXhl8QKLA==",
+  "dgSpecHash": "10+e5lyGY/H6vuQLJV6kIZZvTT0YFlmZEGg5e6YiSIifQt74NhSjVBZ5YJmjHQuyn/HfeEeg5VEYJXEIAvkAkQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Application\\ShawahinAPI.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -201,5 +201,16 @@
     "C:\\Users\\DELL\\.nuget\\packages\\xunit.extensibility.core\\2.6.1\\xunit.extensibility.core.2.6.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\xunit.extensibility.execution\\2.6.1\\xunit.extensibility.execution.2.6.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MimeKit' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-gmc6-fwg3-75m5",
+      "libraryId": "MimeKit",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

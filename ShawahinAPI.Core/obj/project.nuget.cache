@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IOW6jUTmFMfwaE2yqCfqPKPEJcygo6mG968s77wv5UoMIxt7Axa+ByZkoLoHWsIbaj0IjeTdp2wyp8qw6JPoag==",
+  "dgSpecHash": "4s0kuOXtuGHiS5gsDs+cKzjCYlTpTmFeUcwAmASgJjcu27h2K/A28fakro5nSDrqfSUyd8zzS7u9A4Pq9to07g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

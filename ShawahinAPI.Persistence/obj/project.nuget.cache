@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "13CV5bt9iTSPL8AqT6uYGbEipLAeaNXMHXdm1I1ayydB0pQnbcaVLmtqF4obgqfrvAZjdfzjH997VDlSat3wAQ==",
+  "dgSpecHash": "hy+qBUcz5NUKunMovDEJrA36rlJ7QxwrzlQxXaZldcUx5FtDN07iUapYJPPSCgCkhufLWOXAWghBi+cp3Yb8Mg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\ShawahinAPI\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Persistence\\ShawahinAPI.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

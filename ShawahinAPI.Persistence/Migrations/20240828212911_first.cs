@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShawahinAPI.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalDb : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,12 +59,37 @@ namespace ShawahinAPI.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<int>(type: "int", nullable: false),
-                    ChargerImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Charger_Type = table.Column<int>(type: "int", nullable: false),
+                    ChargerLogoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ChargerTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "chargingStationsHours",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SundayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    SundayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    MondayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    MondayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    TuesdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    TuesdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    WednesdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    WednesdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    ThursdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    ThursdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    FridayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    FridayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    SaturdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    SaturdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_chargingStationsHours", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,6 +116,7 @@ namespace ShawahinAPI.Persistence.Migrations
                     BuildingNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StreetName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Town = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -111,31 +137,6 @@ namespace ShawahinAPI.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StationOpeningHours",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SundayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    SundayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    MondayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    MondayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    TuesdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    TuesdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    WednesdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    WednesdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    ThursdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    ThursdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    FridayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    FridayEndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    SaturdayStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    SaturdayEndTime = table.Column<TimeSpan>(type: "time", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StationOpeningHours", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -153,7 +154,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,7 +175,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,7 +195,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,13 +213,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,7 +239,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -261,7 +262,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserPostId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -282,7 +283,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -293,6 +294,7 @@ namespace ShawahinAPI.Persistence.Migrations
                     UserPostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PublishDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -303,7 +305,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserPostId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -313,9 +315,15 @@ namespace ShawahinAPI.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ChargerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ChargerTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PowerKw = table.Column<double>(type: "float", nullable: false),
-                    ChargerSpeed = table.Column<double>(type: "float", nullable: false),
-                    ElectricType = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    PowerKw = table.Column<int>(type: "int", nullable: true),
+                    ElectricType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChargerStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChargerCost = table.Column<double>(type: "float", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParkingType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PaymentMethod = table.Column<int>(type: "int", nullable: true),
+                    PaymentType = table.Column<int>(type: "int", nullable: true),
+                    CurrentChargerStatus = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -325,7 +333,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.ChargerTypeId,
                         principalTable: "ChargerTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -335,7 +343,10 @@ namespace ShawahinAPI.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ServiceTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -346,7 +357,7 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.ServiceTypeId,
                         principalTable: "ServiceTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -366,57 +377,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_CommunityComments_CommunityPosts_PostId",
                         column: x => x.PostId,
                         principalTable: "CommunityPosts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction,
-                        onUpdate: ReferentialAction.NoAction
-                        );
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChargingStations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ContactId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StationOpeningHoursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ChargesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ChargerStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Rate = table.Column<double>(type: "float", nullable: true),
-                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChargersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChargingStations", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ChargingStations_Chargers_ChargersId",
-                        column: x => x.ChargersId,
-                        principalTable: "Chargers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_ChargingStations_Contacts_ContactId",
-                        column: x => x.ContactId,
-                        principalTable: "Contacts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChargingStations_Locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "Locations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChargingStations_StationOpeningHours_StationOpeningHoursId",
-                        column: x => x.StationOpeningHoursId,
-                        principalTable: "StationOpeningHours",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -424,15 +391,13 @@ namespace ShawahinAPI.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ParkingType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OwnerContactId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TimeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ChargerCost = table.Column<double>(type: "float", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Request_Status = table.Column<int>(type: "int", nullable: true),
+                    ContactId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ChargerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    StationOpeningHoursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ChargesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ChargersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -441,32 +406,80 @@ namespace ShawahinAPI.Persistence.Migrations
                         name: "FK_StationRequest_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_StationRequest_Chargers_ChargerId",
-                        column: x => x.ChargerId,
+                        name: "FK_StationRequest_Chargers_ChargersId",
+                        column: x => x.ChargersId,
                         principalTable: "Chargers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_StationRequest_Contacts_OwnerContactId",
-                        column: x => x.OwnerContactId,
+                        name: "FK_StationRequest_Contacts_ContactId",
+                        column: x => x.ContactId,
                         principalTable: "Contacts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_StationRequest_Locations_LocationId",
                         column: x => x.LocationId,
                         principalTable: "Locations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_StationRequest_StationOpeningHours_TimeId",
-                        column: x => x.TimeId,
-                        principalTable: "StationOpeningHours",
+                        name: "FK_StationRequest_chargingStationsHours_StationOpeningHoursId",
+                        column: x => x.StationOpeningHoursId,
+                        principalTable: "chargingStationsHours",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Stations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Rate = table.Column<double>(type: "float", nullable: true),
+                    FavoriteCount = table.Column<int>(type: "int", nullable: false),
+                    UserUsedCount = table.Column<int>(type: "int", nullable: false),
+                    views = table.Column<int>(type: "int", nullable: false),
+                    TotalRevenue = table.Column<double>(type: "float", nullable: false),
+                    ContactId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StationOpeningHoursId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ChargesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ChargersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Stations_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Stations_Chargers_ChargersId",
+                        column: x => x.ChargersId,
+                        principalTable: "Chargers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Stations_Contacts_ContactId",
+                        column: x => x.ContactId,
+                        principalTable: "Contacts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Stations_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Stations_chargingStationsHours_StationOpeningHoursId",
+                        column: x => x.StationOpeningHoursId,
+                        principalTable: "chargingStationsHours",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -486,13 +499,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ServiceReq_ServiceInfo_ServiceInfoId",
                         column: x => x.ServiceInfoId,
                         principalTable: "ServiceInfo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -500,17 +513,52 @@ namespace ShawahinAPI.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ServiceInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ServiceInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Services_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
                         name: "FK_Services_ServiceInfo_ServiceInfoId",
                         column: x => x.ServiceInfoId,
                         principalTable: "ServiceInfo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bookings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    startBooking = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    endBooking = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bookings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bookings_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Bookings_Stations_StationId",
+                        column: x => x.StationId,
+                        principalTable: "Stations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -533,13 +581,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.CustomerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_ChargingSessions_ChargingStations_ChargingStationId",
+                        name: "FK_ChargingSessions_Stations_ChargingStationId",
                         column: x => x.ChargingStationId,
-                        principalTable: "ChargingStations",
+                        principalTable: "Stations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -558,13 +606,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_FavoriteStations_ChargingStations_StationId",
+                        name: "FK_FavoriteStations_Stations_StationId",
                         column: x => x.StationId,
-                        principalTable: "ChargingStations",
+                        principalTable: "Stations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -584,13 +632,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_StationComments_ChargingStations_StationId",
+                        name: "FK_StationComments_Stations_StationId",
                         column: x => x.StationId,
-                        principalTable: "ChargingStations",
+                        principalTable: "Stations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -609,13 +657,13 @@ namespace ShawahinAPI.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_FavoriteServices_Services_ServiceId",
                         column: x => x.ServiceId,
                         principalTable: "Services",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -658,6 +706,16 @@ namespace ShawahinAPI.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bookings_StationId",
+                table: "Bookings",
+                column: "StationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_UserId",
+                table: "Bookings",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Chargers_ChargerTypeId",
                 table: "Chargers",
                 column: "ChargerTypeId");
@@ -671,27 +729,6 @@ namespace ShawahinAPI.Persistence.Migrations
                 name: "IX_ChargingSessions_CustomerId",
                 table: "ChargingSessions",
                 column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChargingStations_ChargersId",
-                table: "ChargingStations",
-                column: "ChargersId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChargingStations_ContactId",
-                table: "ChargingStations",
-                column: "ContactId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChargingStations_LocationId",
-                table: "ChargingStations",
-                column: "LocationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChargingStations_StationOpeningHoursId",
-                table: "ChargingStations",
-                column: "StationOpeningHoursId",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_CommunityComments_PostId",
@@ -759,6 +796,11 @@ namespace ShawahinAPI.Persistence.Migrations
                 column: "ServiceInfoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Services_UserId",
+                table: "Services",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StationComments_StationId",
                 table: "StationComments",
                 column: "StationId");
@@ -769,9 +811,14 @@ namespace ShawahinAPI.Persistence.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StationRequest_ChargerId",
+                name: "IX_StationRequest_ChargersId",
                 table: "StationRequest",
-                column: "ChargerId");
+                column: "ChargersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StationRequest_ContactId",
+                table: "StationRequest",
+                column: "ContactId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StationRequest_LocationId",
@@ -779,19 +826,40 @@ namespace ShawahinAPI.Persistence.Migrations
                 column: "LocationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StationRequest_OwnerContactId",
+                name: "IX_StationRequest_StationOpeningHoursId",
                 table: "StationRequest",
-                column: "OwnerContactId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StationRequest_TimeId",
-                table: "StationRequest",
-                column: "TimeId",
+                column: "StationOpeningHoursId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_StationRequest_UserId",
                 table: "StationRequest",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stations_ChargersId",
+                table: "Stations",
+                column: "ChargersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stations_ContactId",
+                table: "Stations",
+                column: "ContactId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stations_LocationId",
+                table: "Stations",
+                column: "LocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stations_StationOpeningHoursId",
+                table: "Stations",
+                column: "StationOpeningHoursId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Stations_UserId",
+                table: "Stations",
                 column: "UserId");
         }
 
@@ -812,6 +880,9 @@ namespace ShawahinAPI.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Bookings");
 
             migrationBuilder.DropTable(
                 name: "ChargingSessions");
@@ -850,13 +921,13 @@ namespace ShawahinAPI.Persistence.Migrations
                 name: "Services");
 
             migrationBuilder.DropTable(
-                name: "ChargingStations");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Stations");
 
             migrationBuilder.DropTable(
                 name: "ServiceInfo");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Chargers");
@@ -868,7 +939,7 @@ namespace ShawahinAPI.Persistence.Migrations
                 name: "Locations");
 
             migrationBuilder.DropTable(
-                name: "StationOpeningHours");
+                name: "chargingStationsHours");
 
             migrationBuilder.DropTable(
                 name: "ServiceTypes");
