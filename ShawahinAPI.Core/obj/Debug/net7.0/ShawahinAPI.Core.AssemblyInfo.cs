@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShawahinAPI.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2480186f7c3df0d7e971ae7713b30506fdb86781")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd169a64e6ceee0eaa34bfdcc17a24573b00e711")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShawahinAPI.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShawahinAPI.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

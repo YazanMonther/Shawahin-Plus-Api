@@ -1,0 +1,1477 @@
+[
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.UserLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registrationDto",
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.UserRegistrationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.AuthController",
+    "Method": "Sign_Out",
+    "RelativePath": "api/Auth/sign-out",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "AcceptBooking",
+    "RelativePath": "api/Booking/acceptBooking/{bookingId}/{UserId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "CreateBookingRequest",
+    "RelativePath": "api/Booking/createBookingRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.BookingRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "DenyBooking",
+    "RelativePath": "api/Booking/denyBooking/{bookingId}/{UserId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "GetBookingsByOwnerUserId",
+    "RelativePath": "api/Booking/getBookingsByOwnerUserId/{ownerUserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ownerUserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ChargingStationsDto.BookingResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "GetBookingsByStationId",
+    "RelativePath": "api/Booking/getBookingsByStationId/{stationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ChargingStationsDto.BookingResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.BookingController",
+    "Method": "GetBookingsByUserId",
+    "RelativePath": "api/Booking/getBookingsByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ChargingStationsDto.BookingResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerTypeController",
+    "Method": "AddChargerType",
+    "RelativePath": "api/ChargerType/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chargerTypeDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargerTypeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerTypeController",
+    "Method": "RemoveChargerType",
+    "RelativePath": "api/ChargerType/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chargerTypeDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargerTypeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerTypeController",
+    "Method": "GetAllChargerTypes",
+    "RelativePath": "api/ChargerType/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerTypeController",
+    "Method": "GetChargerTypeById",
+    "RelativePath": "api/ChargerType/GetById/{chargerTypeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chargerTypeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerTypeController",
+    "Method": "UpdateChargerType",
+    "RelativePath": "api/ChargerType/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chargerTypeDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargerTypeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingInfoController",
+    "Method": "GetChargerPower",
+    "RelativePath": "api/charginginfo/getChargerPower",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingInfoController",
+    "Method": "GetAllChargerTypes",
+    "RelativePath": "api/charginginfo/getChargerTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingInfoController",
+    "Method": "GetCurrentChargerStatus",
+    "RelativePath": "api/charginginfo/getCurrentChargerStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingInfoController",
+    "Method": "GetAllPaymentMethods",
+    "RelativePath": "api/charginginfo/getPaymentMethods",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingInfoController",
+    "Method": "GetAllPaymentTypes",
+    "RelativePath": "api/charginginfo/getPaymentTypess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerStationCommentsController",
+    "Method": "AddComment",
+    "RelativePath": "api/chargingstationcomments/addComment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargerStationCommentBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerStationCommentsController",
+    "Method": "GetCommentById",
+    "RelativePath": "api/chargingstationcomments/getCommentById/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerStationCommentsController",
+    "Method": "GetCommentsForStation",
+    "RelativePath": "api/chargingstationcomments/getCommentsForStation/{stationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerStationCommentsController",
+    "Method": "RemoveComment",
+    "RelativePath": "api/chargingstationcomments/removeComment/{commentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargerStationCommentsController",
+    "Method": "UpdateComment",
+    "RelativePath": "api/chargingstationcomments/updateComment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargerStationCommentResponeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "AddChargingStationRequest",
+    "RelativePath": "api/ChargingStationRequest/AddRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationDto",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.AddChargingStationsReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "RemoveChargingStationRequest",
+    "RelativePath": "api/ChargingStationRequest/Delete/{requestId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "DenayChargingStationRequest",
+    "RelativePath": "api/ChargingStationRequest/Denay/{requestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "GetAllChargingStationRequests",
+    "RelativePath": "api/ChargingStationRequest/GetAllRequest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "GetChargingStationRequestById",
+    "RelativePath": "api/ChargingStationRequest/GetRequestById/{requestId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationRequestController",
+    "Method": "UpdateChargingStationRequestStatus",
+    "RelativePath": "api/ChargingStationRequest/Update/{requestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "ShawahinAPI.Core.Enums.RequestStatus",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "AddNewChargingStation",
+    "RelativePath": "api/ChargingStations/{requestId}/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "GetFilteredChargingStations",
+    "RelativePath": "api/ChargingStations/filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chargerType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paymentMethod",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paymentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "chargerPower",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "chargerStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "GetAllChargingStations",
+    "RelativePath": "api/ChargingStations/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "GetChargingStationById",
+    "RelativePath": "api/ChargingStations/GetbyId/{stationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "GetChargingStationsByUserId",
+    "RelativePath": "api/ChargingStations/GetbyUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "RemoveChargingStation",
+    "RelativePath": "api/ChargingStations/Remove/{stationId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ChargingStationsController",
+    "Method": "UpdateChargingStation",
+    "RelativePath": "api/ChargingStations/update/{stationId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedStation",
+        "Type": "ShawahinAPI.Core.DTO.ChargingStationsDto.ChargingStationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityCommentsController",
+    "Method": "AddComment",
+    "RelativePath": "api/CommunityComments/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityCommentBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityCommentsController",
+    "Method": "GetAllComments",
+    "RelativePath": "api/CommunityComments/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityCommentsController",
+    "Method": "GetCommentsByPostId",
+    "RelativePath": "api/CommunityComments/GetBypostId/{postId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityCommentsController",
+    "Method": "RemoveComment",
+    "RelativePath": "api/CommunityComments/Remove/{commentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityEventsController",
+    "Method": "AddEvent",
+    "RelativePath": "api/CommunityEvents/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityEventBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityEventsController",
+    "Method": "GetAllEvents",
+    "RelativePath": "api/CommunityEvents/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityEventsController",
+    "Method": "GetEventById",
+    "RelativePath": "api/CommunityEvents/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityEventsController",
+    "Method": "RemoveEvent",
+    "RelativePath": "api/CommunityEvents/Remove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityEventsController",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/CommunityEvents/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "eventDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityEventBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "AddPost",
+    "RelativePath": "api/CommunityPosts/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityPostBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/CommunityPosts/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "GetPostById",
+    "RelativePath": "api/CommunityPosts/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "GetPostsByUserId",
+    "RelativePath": "api/CommunityPosts/GetByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "RemovePost",
+    "RelativePath": "api/CommunityPosts/Remove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.CommunityPostsController",
+    "Method": "UpdatePost",
+    "RelativePath": "api/CommunityPosts/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "postDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityPostBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.EvNewsController",
+    "Method": "AddNews",
+    "RelativePath": "api/EvNews/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newsDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityEvNewsBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.EvNewsController",
+    "Method": "GetAllNews",
+    "RelativePath": "api/EvNews/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.EvNewsController",
+    "Method": "GetNewsById",
+    "RelativePath": "api/EvNews/GetByNewsId/{newsId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newsId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.EvNewsController",
+    "Method": "RemoveNews",
+    "RelativePath": "api/EvNews/Remove/{newsId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newsId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.EvNewsController",
+    "Method": "UpdateNews",
+    "RelativePath": "api/EvNews/Update/{newsId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newsId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "newsDto",
+        "Type": "ShawahinAPI.Core.DTO.CommunityDto.CommunityEvNewsBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteServicesController",
+    "Method": "AddServiceToFavorites",
+    "RelativePath": "api/FavoriteServices/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ServiceId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteServicesController",
+    "Method": "RemoveServiceFromFavorites",
+    "RelativePath": "api/FavoriteServices/remove",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ServiceId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteServicesController",
+    "Method": "GetFavoriteServices",
+    "RelativePath": "api/FavoriteServices/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ServiceDto.ServiceResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteStationsController",
+    "Method": "AddStationToFavoritesAsync",
+    "RelativePath": "api/FavoriteStations/AddToFavorite",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "stationId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteStationsController",
+    "Method": "GetFavoriteStationsAsync",
+    "RelativePath": "api/FavoriteStations/GetFavorites",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ChargingStationsDto.ChargingStationDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteStationsController",
+    "Method": "IsStationInFavoritesAsync",
+    "RelativePath": "api/FavoriteStations/IsInFavorites",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "stationId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.FavoriteStationsController",
+    "Method": "RemoveStationFromFavoritesAsync",
+    "RelativePath": "api/FavoriteStations/RemoveFromFavorites",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "stationId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceRequestController",
+    "Method": "AddServiceRequest",
+    "RelativePath": "api/servicerequests/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestDto",
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceAddRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceRequestController",
+    "Method": "DenayServiceRequest",
+    "RelativePath": "api/servicerequests/Denay/{requestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceRequestController",
+    "Method": "GetAllServiceRequests",
+    "RelativePath": "api/servicerequests/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ServiceDto.ServiceRequestResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceRequestController",
+    "Method": "GetServiceRequestById",
+    "RelativePath": "api/servicerequests/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceRequestResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceRequestController",
+    "Method": "RemoveServiceRequest",
+    "RelativePath": "api/servicerequests/Remove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "UpdateService",
+    "RelativePath": "api/Services",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "serviceDto",
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceResponseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "AddService",
+    "RelativePath": "api/Services/Add/{requestId}/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "GetAllServices",
+    "RelativePath": "api/Services/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "GetServiceById",
+    "RelativePath": "api/Services/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "GetServicesByTypeId",
+    "RelativePath": "api/Services/GetByTypeId/{typeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "typeId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServicesController",
+    "Method": "RemoveService",
+    "RelativePath": "api/Services/Remove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceTypeController",
+    "Method": "AddServiceType",
+    "RelativePath": "api/servicetypes/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "serviceTypeDto",
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceTypeController",
+    "Method": "GetAllServiceTypes",
+    "RelativePath": "api/servicetypes/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeResponseDto, ShawahinAPI.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceTypeController",
+    "Method": "GetServiceTypeById",
+    "RelativePath": "api/servicetypes/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceTypeController",
+    "Method": "RemoveServiceType",
+    "RelativePath": "api/servicetypes/Remove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShawahinAPI.Application.Controllers.ServiceTypeController",
+    "Method": "UpdateServiceType",
+    "RelativePath": "api/servicetypes/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "serviceTypeDto",
+        "Type": "ShawahinAPI.Core.DTO.ServiceDto.ServiceTypeBaseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShawahinAPI.Core.DTO.UserDTO.ResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

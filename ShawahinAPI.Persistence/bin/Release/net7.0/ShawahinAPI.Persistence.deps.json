@@ -1096,7 +1096,10 @@
           "System.Spatial": "5.8.5"
         },
         "runtime": {
-          "ShawahinAPI.Core.dll": {}
+          "ShawahinAPI.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

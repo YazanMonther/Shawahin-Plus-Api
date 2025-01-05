@@ -2501,33 +2501,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\Yazan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Yazan\\WorkPlace\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
       "projectName": "ShawahinAPI.Services",
-      "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\obj\\",
+      "projectPath": "C:\\Users\\Yazan\\WorkPlace\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\ShawahinAPI.Services.csproj",
+      "packagesPath": "C:\\Users\\Yazan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Yazan\\WorkPlace\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Services\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Yazan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
+            "C:\\Users\\Yazan\\WorkPlace\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj": {
+              "projectPath": "C:\\Users\\Yazan\\WorkPlace\\GitHub\\Shawahin-Plus-Api\\ShawahinAPI.Core\\ShawahinAPI.Core.csproj"
             }
           }
         }
@@ -2541,7 +2548,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net7.0": {
@@ -2580,7 +2588,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

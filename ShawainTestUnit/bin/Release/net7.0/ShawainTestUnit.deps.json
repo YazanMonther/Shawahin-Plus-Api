@@ -2080,7 +2080,10 @@
           "System.Spatial": "5.8.5"
         },
         "runtime": {
-          "ShawahinAPI.Core.dll": {}
+          "ShawahinAPI.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "ShawahinAPI.Persistence/1.0.0": {
@@ -2092,7 +2095,10 @@
           "ShawahinAPI.Core": "1.0.0"
         },
         "runtime": {
-          "ShawahinAPI.Persistence.dll": {}
+          "ShawahinAPI.Persistence.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "ShawahinAPI.Services/1.0.0": {
@@ -2104,7 +2110,10 @@
           "System.IdentityModel.Tokens.Jwt": "7.0.3"
         },
         "runtime": {
-          "ShawahinAPI.Services.dll": {}
+          "ShawahinAPI.Services.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

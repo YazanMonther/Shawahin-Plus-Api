@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "Sr4ktnbvQ4OE8uDca7jwBA6SxmpDKIZiz389RYvvzaU=",
+  "Hash": "s8Eghy09Crdz2JEU/qa77L4wclzP3Cl6pZ6W0Kr9PbM=",
   "Source": "ShawahinAPI.Application",
   "BasePath": "_content/ShawahinAPI.Application",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

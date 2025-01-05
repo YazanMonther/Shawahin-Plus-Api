@@ -77,10 +77,19 @@ builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("Email
 builder.Services.AddDbContext<ShawahinDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb")),ServiceLifetime.Scoped);
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
-    .AddRoleManager<RoleManager<ApplicationRole>>()
-    .AddEntityFrameworkStores<ShawahinDbContext>()
-    .AddTokenProvider<EmailTokenProvider<ApplicationUser>>(TokenOptions.DefaultProvider);
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.Password.RequireDigit = false; // No digit required
+    options.Password.RequireLowercase = false; // No lowercase letter required
+    options.Password.RequireUppercase = false; // No uppercase letter required
+    options.Password.RequireNonAlphanumeric = false; // No special character required
+    options.Password.RequiredLength = 4; // Minimum length of 6
+    options.Password.RequiredUniqueChars = 0; // Minimum number of unique characters
+})
+.AddRoleManager<RoleManager<ApplicationRole>>()
+.AddEntityFrameworkStores<ShawahinDbContext>()
+.AddTokenProvider<EmailTokenProvider<ApplicationUser>>(TokenOptions.DefaultProvider);
+
 
 
 builder.Services.AddCors(options =>

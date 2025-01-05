@@ -15,7 +15,6 @@ namespace ShawahinAPI.Core.DTO.UserDTO
         public string? Email { get; set; }
 
         [Required]
-        [MinLength(6)]
         public string Password { get; set; } = "";
 
         [Required]
