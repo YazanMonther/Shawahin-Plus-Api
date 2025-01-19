@@ -96,23 +96,35 @@ namespace ShawahinAPI.Services.Implementation
 
             getStationReq.Request_Status = RequestStatus.Accepted;
             var statusUpdate = await _chargingStationRequestRepository.UpdateAsync(getStationReq);
-
-            if (addingResult.Succeeded)
+            if (addingResult.Succeeded && getStationReq.UserId.HasValue)
             {
-                var User = await _userGetRepository.GetByIdAsync(userId.Value );
+                
+                var User = await _userGetRepository.GetByIdAsync(getStationReq.UserId.Value);
                 try
                 {
                     EmailRequest emailRequestAccepted = new EmailRequest()
                     {
-                        ToEmail = User?.Email!,
+                        ToEmail = chargerRequest.User?.Email!,
                         Subject = "Station Request Accepted",
-                        Body = $"Dear User,\n\n" +
-                                $"Congratulations! Your Station Adding Request has been accepted.\n" +
-                                $"We appreciate your contribution to our charging network.\n" +
-                                $"Thank you for choosing our services.\n\n" +
-                                $"Best regards,\n" +
-                                $"Shawahin Plus"
+                        Body = $@"
+                            <p>Dear User,</p>
+                            <p><strong>Congratulations!</strong> Your Station Adding Request has been accepted.</p>
+                            <p>We appreciate your contribution to our charging network.</p>
+                            <p>Thank you for choosing our services.</p>
+                            <p>Best regards,</p>
+                            <p>Shawahin Plus</p>
+
+                            <hr />
+
+                            <p>عزيزي المستخدم،</p>
+                            <p><strong>مبروك!</strong> تم قبول طلب إضافة محطتك.</p>
+                            <p>نحن نقدر مساهمتك في شبكتنا لشحن السيارات الكهربائية.</p>
+                            <p>شكرًا لاختيارك خدماتنا.</p>
+                            <p>مع أطيب التحيات،</p>
+                            <p>شواحن بلس</p>
+                        "
                     };
+
                     await _emailService.SendEmailAsync(emailRequestAccepted);
 
                 }
