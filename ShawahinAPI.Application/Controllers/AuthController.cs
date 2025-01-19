@@ -32,7 +32,7 @@ namespace ShawahinAPI.Application.Controllers
             }
             catch (Exception )
             {
-                return BadRequest(new { error = "Invalid Email or Password" });
+                return BadRequest(new { Message = "Invalid Email or Password" });
             }
         }
 
