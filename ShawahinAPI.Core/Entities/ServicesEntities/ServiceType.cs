@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShawahinAPI.Core.Entities.ServicesEntitiess
 {
-    public class ServiceType
+    public class ServiceType : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

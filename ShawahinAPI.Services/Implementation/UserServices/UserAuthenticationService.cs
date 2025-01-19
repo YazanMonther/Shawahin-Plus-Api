@@ -4,12 +4,7 @@ using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers.UserMappers;
 using ShawahinAPI.Services.Contract.IUserServices;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShawahinAPI.Services.Implementation.UserServices
 {

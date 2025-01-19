@@ -78,14 +78,23 @@ public class ChargingStationRequestService : IChargingStationRequestService
                 EmailRequest emailRequestSubmission = new EmailRequest()
                 {
                     ToEmail = User?.Email!,
-                    Subject = "Station Request Submission",
-                    Body = $"Dear User,\n\n" +
-                            $"Thank you for submitting a Station Adding Request.\n" +
-                            $"Our team will review the provided information shortly.\n" +
-                            $"You will receive an email once a decision has been made regarding your request.\n\n" +
-                            $"Best regards,\n" +
-                            $"Shawahin Plus"
+                    Subject = "إرسال طلب محطة | Station Request Submission",
+                    Body = $@"
+                        <p>Dear User,</p>
+                        <p>Thank you for submitting a Station Adding Request.<br>
+                        Our team will review the provided information shortly.<br>
+                        You will receive an email once a decision has been made regarding your request.</p>
+                        <p>Best regards,<br>Shawahin Plus</p>
+
+                        <hr style='border: 1px solid #ccc; margin: 20px 0;'>
+
+                        <p>عزيزي المستخدم،</p>
+                        <p>شكراً لتقديم طلب إضافة محطة.<br>
+                        سيقوم فريقنا بمراجعة المعلومات المقدمة في أقرب وقت.<br>
+                        ستتلقى بريدًا إلكترونيًا بمجرد اتخاذ قرار بشأن طلبك.</p>
+                        <p>مع أطيب التحيات،<br>شواحن بلس</p>"
                 };
+
                 await _emailService.SendEmailAsync(emailRequestSubmission);
 
             }

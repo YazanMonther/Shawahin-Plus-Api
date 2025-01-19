@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.DTO.ServiceDto
 {
-    public class ServicesBaseDto
+    public class ServicesBaseDto 
     {
         public Guid ServiceInfoId { get; set; }
     }

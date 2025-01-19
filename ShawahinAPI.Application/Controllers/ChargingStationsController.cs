@@ -24,7 +24,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="requestId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+  //      [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("{requestId}/{userId}")]
         public async Task<IActionResult> AddNewChargingStation(Guid requestId, Guid userId)
         {

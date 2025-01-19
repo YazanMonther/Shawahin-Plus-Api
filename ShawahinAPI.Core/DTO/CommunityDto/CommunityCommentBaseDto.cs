@@ -11,7 +11,7 @@ namespace ShawahinAPI.Core.DTO.CommunityDto
     /// <summary>
     /// Data Transfer Object for community comment.
     /// </summary>
-    public class CommunityCommentBaseDto
+    public class CommunityCommentBaseDto 
     {
 
         public Guid UserId { get; set; }

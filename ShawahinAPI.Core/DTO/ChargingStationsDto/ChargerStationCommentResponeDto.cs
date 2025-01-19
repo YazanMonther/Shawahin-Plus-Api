@@ -9,6 +9,7 @@ namespace ShawahinAPI.Core.DTO.ChargingStationsDto
     public class ChargerStationCommentResponeDto : ChargerStationCommentBaseDto
     {
         public Guid Id { get; set; }
-
+        public DateTime CreatedDate { get; set; }
+        public string? UserName { get; set; }
     }
 }

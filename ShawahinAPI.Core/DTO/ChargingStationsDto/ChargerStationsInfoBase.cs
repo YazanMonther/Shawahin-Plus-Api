@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.DTO.ChargingStationsDto
 {
-    public class ChargerStationsInfoBase
+    public class ChargerStationsInfoBase 
     {
         public string? ParkingType { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.DTO.CommunityDto
 {
-    public class CommunityEventBaseDto
+    public class CommunityEventBaseDto 
     {
 
         public Guid UserPostId { get; set; }

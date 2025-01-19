@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ShawahinAPI.Core.DTO.ServiceDto
 {
 
-    public class ServiceTypeBaseDto
+    public class ServiceTypeBaseDto 
     {
         public string? ServiceTypeName { get; set; }
     }

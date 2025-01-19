@@ -2,8 +2,8 @@
 namespace ShawahinAPI.Core.DTO.CommunityDto
 {
 
-        public class CommunityPostBaseDto
-        {
+        public class CommunityPostBaseDto 
+    {
 
             public Guid UserId { get; set; }
 

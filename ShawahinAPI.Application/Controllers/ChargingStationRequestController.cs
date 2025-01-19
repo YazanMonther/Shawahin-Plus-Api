@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShawahinAPI.Core.DTO.ChargingStationsDto;
 using ShawahinAPI.Core.Enums;
@@ -42,7 +42,7 @@ namespace ShawahinAPI.Application.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = "Bearer",Roles = "Admin")]
+     //   [Authorize(AuthenticationSchemes = "Bearer",Roles = "Admin")]
         [HttpGet("GetAllRequest")]
         public async Task<IActionResult> GetAllChargingStationRequests(Guid userId)
         {

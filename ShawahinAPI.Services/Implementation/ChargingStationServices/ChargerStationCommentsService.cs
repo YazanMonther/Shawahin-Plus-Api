@@ -2,6 +2,7 @@
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.Entities.ChargingStationsEntities;
 using ShawahinAPI.Core.IRepositories;
+using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers;
 using ShawahinAPI.Core.Mappers.ChargingStationsMapper;
 using ShawahinAPI.Services.Contract.IChargingStationsServices;
@@ -12,10 +13,12 @@ namespace ShawahinAPI.Services.Implementation
     public class ChargerStationCommentsService : IChargerStationCommentsService
     {
         private readonly IRepository<ChargerStationComments> _repository;
+        private readonly IUserGetRepository _userGetRepository;
 
-        public ChargerStationCommentsService(IRepository<ChargerStationComments> repository)
+        public ChargerStationCommentsService(IRepository<ChargerStationComments> repository, IUserGetRepository user)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _userGetRepository = user;
         }
 
         public async Task<ResultDto> AddCommentAsync(ChargerStationCommentBaseDto commentDto)
@@ -36,8 +39,12 @@ namespace ShawahinAPI.Services.Implementation
                      EntityDtoMapper<ChargerStationComments,
                     ChargerStationCommentResponeDto>.
                     MapToDto(comments);
-                    
 
+                foreach (var item in commentDtos)
+                {
+                    var user = await _userGetRepository.GetUserByIdAsync(item.UserId);
+                    item.UserName = user?.UserName;
+                }
                 return commentDtos;
             }
 

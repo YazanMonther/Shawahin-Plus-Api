@@ -50,7 +50,7 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+    //    [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("Add")]
         public async Task<IActionResult> AddChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {
@@ -71,7 +71,7 @@ namespace ShawahinAPI.Application.Controllers
             }
         }
 
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+      //  [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {
@@ -93,7 +93,7 @@ namespace ShawahinAPI.Application.Controllers
         }
 
 
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+    //    [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpDelete("Delete")]
         public async Task<IActionResult> RemoveChargerType([FromBody] ChargerTypeDto chargerTypeDto)
         {

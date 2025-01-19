@@ -9,7 +9,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace ShawahinAPI.Core.Entities.ChargingStationsEntities
 {
-    public class FavoriteStations
+    public class FavoriteStations : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

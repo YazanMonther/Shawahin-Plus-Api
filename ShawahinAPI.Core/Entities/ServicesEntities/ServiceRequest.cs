@@ -9,7 +9,7 @@ using ShawahinAPI.Core.Enums;
 
 namespace ShawahinAPI.Core.Entities.ServicesEntities
 {
-    public class ServiceRequest
+    public class ServiceRequest : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

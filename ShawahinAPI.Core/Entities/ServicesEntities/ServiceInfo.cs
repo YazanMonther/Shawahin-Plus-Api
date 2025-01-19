@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.Entities.ServicesEntities
 {
-    public class ServiceInfo
+    public class ServiceInfo : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

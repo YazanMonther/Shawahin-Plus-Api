@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Moq;
+using ShawahinAPI.Core.DTO;
 using ShawahinAPI.Core.DTO.UserDTO;
 using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.Enums;
@@ -7,7 +9,9 @@ using ShawahinAPI.Core.IRepositories.IUserRepository;
 using ShawahinAPI.Core.IRepositories.IUserRepository.IUserAuthRepositories;
 using ShawahinAPI.Core.Mappers.UserMappers;
 using ShawahinAPI.Persistence.Repository.UserRepositories.UserAuthRepositories;
+using ShawahinAPI.Services.Contract;
 using ShawahinAPI.Services.Contract.IUserServices;
+using ShawahinAPI.Services.Implementation;
 using ShawahinAPI.Services.Implementation.UserServices;
 using System;
 using System.Collections.Generic;
@@ -58,8 +62,10 @@ namespace ShawainTestUnit
             // Sign Out Service
             _signOutService = new UserSignOutService(Mock.Of<IUserSignOutRepository>());
 
+            IOptions<EmailSetting> emailSetting = Mock.Of<EmailSetting>;
+            IEmailService emailService = new EmailService(emailSetting);
             // Registration Service
-            _registrationService = new UserRegistrationService(_userManagerMock.Object, _registrationsRepository.Object);
+            _registrationService = new UserRegistrationService(_userManagerMock.Object, _registrationsRepository.Object, emailService);
         }
         #region SignIn Tests
 

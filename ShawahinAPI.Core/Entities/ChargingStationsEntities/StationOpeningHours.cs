@@ -1,7 +1,7 @@
 ﻿namespace ShawahinAPI.Core.Entities.ChargingStationsEntities
 {
  
-    public class StationOpeningHours
+    public class StationOpeningHours : BaseEntity
     {
         public Guid Id { get; set; }
 

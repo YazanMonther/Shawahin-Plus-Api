@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.Entities.ChargingStationsEntities
 {
-    public class Bookings
+    public class Bookings : BaseEntity
     {
         public Guid Id { get; set; }
         public Guid StationId { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShawahinAPI.Core.Entities
 {
-    public class CommunityPosts
+    public class CommunityPosts : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

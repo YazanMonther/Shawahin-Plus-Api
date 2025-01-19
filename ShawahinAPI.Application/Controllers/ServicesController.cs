@@ -71,7 +71,7 @@ namespace ShawahinAPI.Application.Controllers
         /// <param name="requestId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+  //      [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpPost("Add/{requestId}/{userId}")]
         public async Task<IActionResult> AddService(Guid requestId, Guid userId)
         {
@@ -97,7 +97,7 @@ namespace ShawahinAPI.Application.Controllers
         /// </summary>
         /// <param name="serviceDto"></param>
         /// <returns></returns>
-        [Authorize(Roles = "Admin")]
+    //    [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> UpdateService([FromBody] ServiceResponseDto serviceDto)
         {
@@ -123,7 +123,7 @@ namespace ShawahinAPI.Application.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
+   //     [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         [HttpDelete("Remove/{id}")]
         public async Task<IActionResult> RemoveService(Guid id)
         {

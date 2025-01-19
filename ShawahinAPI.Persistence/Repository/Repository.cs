@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShawahinAPI.Core.DTO;
 using ShawahinAPI.Core.DTO.UserDTO;
+using ShawahinAPI.Core.Entities;
 using ShawahinAPI.Core.IRepositories;
 using System.Linq.Expressions;
 
@@ -30,6 +32,12 @@ namespace ShawahinAPI.Persistence.Repository
         {
             try
             {
+                // For entities that inherit from BaseDto, we can automatically set the CreatedDate
+                if (entity is BaseEntity baseEntity)
+                {
+                    baseEntity.CreatedDate = DateTime.UtcNow;
+                }
+
                 await _dbSet.AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return new ResultDto { Succeeded = true, Message = "Entity added successfully." };
@@ -44,6 +52,12 @@ namespace ShawahinAPI.Persistence.Repository
         {
             try
             {
+                // For entities that inherit from BaseDto, we can automatically set the UpdatedDate
+                if (entity is BaseEntity baseEntity)
+                {
+                    baseEntity.UpdatedDate = DateTime.UtcNow;
+                }
+
                 _context.Entry(entity).State = EntityState.Modified;
                 _dbSet.Update(entity);
                 await _context.SaveChangesAsync();
@@ -59,8 +73,18 @@ namespace ShawahinAPI.Persistence.Repository
         {
             try
             {
-                _dbSet.Remove(entity);
-                await _context.SaveChangesAsync();
+                // Soft delete functionality
+                if (entity is BaseEntity baseEntity)
+                {
+                    baseEntity.IsDeleted = true;
+                    await UpdateAsync(entity); // Update the IsDeleted flag and UpdatedDate
+                }
+                else
+                {
+                    _dbSet.Remove(entity);
+                    await _context.SaveChangesAsync();
+                }
+
                 return new ResultDto { Succeeded = true, Message = "Entity removed successfully." };
             }
             catch (Exception ex)
@@ -73,7 +97,6 @@ namespace ShawahinAPI.Persistence.Repository
         {
             return await _dbSet.Where(condition).ToListAsync();
         }
-
 
         /// Eager Loading
         public async Task<IEnumerable<T?>> GetAllAsync(params Expression<Func<T, object>>[] includes)
@@ -88,7 +111,7 @@ namespace ShawahinAPI.Persistence.Repository
             return await query.ToListAsync();
         }
 
-        public async Task<IEnumerable<T?>> GetByConditionAsync(Expression<Func<T, bool>> condition , params Expression<Func<T, object>>[] includes)
+        public async Task<IEnumerable<T?>> GetByConditionAsync(Expression<Func<T, bool>> condition, params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _dbSet;
 
@@ -111,7 +134,5 @@ namespace ShawahinAPI.Persistence.Repository
 
             return await query.FirstOrDefaultAsync(entity => EF.Property<Guid>(entity, "Id") == id);
         }
-
     }
-
 }

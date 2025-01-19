@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ShawahinAPI.Core.Entities.ServicesEntities
 {
 
-    public class FavoriteServices
+    public class FavoriteServices : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

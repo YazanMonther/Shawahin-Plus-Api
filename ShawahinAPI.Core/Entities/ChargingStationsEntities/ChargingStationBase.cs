@@ -1,11 +1,9 @@
 ﻿using ShawahinAPI.Core.Entities.ChargingStationsEntities;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShawahinAPI.Core.Entities
 {
-    public abstract class ChargingStationBase
+    public abstract class ChargingStationBase :BaseEntity
     {
         
         [ForeignKey("Contact")]

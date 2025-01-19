@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ShawahinAPI.Core.Entities.ServicesEntities
 {
 
-    public class Services
+    public class Services : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShawahinAPI.Core.Entities
 {
-    public class Chargers
+    public class Chargers : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }

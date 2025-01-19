@@ -7,7 +7,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace ShawahinAPI.Core.Entities
 {
-    public class Locations
+    public class Locations : BaseEntity
     {
         [Key]
         public Guid Id { get; set; }
